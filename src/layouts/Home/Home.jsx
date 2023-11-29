@@ -20,8 +20,8 @@ function Home() {
     return (
         <>
             <br/><Navbar/>
+            <Hero1/>
             <br/><Feature/>
-            <br/><Hero1/>
             <br/><Hero2/>
             <br/><CTA/>
             <br/><Partners/>
