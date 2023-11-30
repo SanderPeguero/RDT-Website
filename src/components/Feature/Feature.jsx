@@ -53,7 +53,6 @@ function Feature() {
             <br />reach your financial goal</p>
         </div>
       </div>
-
     </div>
 
   )
