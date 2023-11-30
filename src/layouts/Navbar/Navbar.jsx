@@ -10,7 +10,7 @@ function Navbar() {
     };
   
     return (
-      <nav className="bg-black p-4">
+      <nav className="bg-black pl-4 pr-6 pt-4 pb-4">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
