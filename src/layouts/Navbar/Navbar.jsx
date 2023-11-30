@@ -17,7 +17,6 @@ function Navbar() {
             <img src={logo}  alt="Logo" className="h-12 w-12 mr-2" />
   
           </div>
-  
           {/* Botones para pantallas grandes */}
           <div className="hidden md:flex space-x-8">
             <button className="text-white">Home</button>
