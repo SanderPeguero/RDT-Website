@@ -22,7 +22,7 @@ function Hero2() {
                     Try For Free
                 </button>
             </div>
-           
+
 
             <div className="mt-[4rem] ">
 
