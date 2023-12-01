@@ -3,7 +3,7 @@
 function CTA() {
 
     return (
-        <div className=" bg-black w-full  h-[560px] py-20 px-0 gap-59">
+        <div className=" w-full  h-[560px] py-20 px-0 gap-59 " style={{ backgroundColor: '#000320' }}>
             <div className="flex flex-col items-center justify-center mx-4 lg:mx-0 md:mx-0">
 
                 <div className="flex flex-col items-center justify-center">
