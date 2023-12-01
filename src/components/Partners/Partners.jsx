@@ -51,9 +51,9 @@ function Partners() {
 
     return (
         <div>
-            <div className="bg-white flex flex-col items-center justify-center">
+            <div className="bg-white flex flex-col items-center justify-center mb-[4rem] mt-[2rem]">
                 <div className="">
-                    <h2 className="font-roboto text-4xl font-normal leading-14 tracking-tighter text-center text-blue-900  py-4">
+                    <h2 className="font-roboto text-4xl font-normal leading-14 tracking-tighter text-center text-blue-950  py-4">
                         Partners
                     </h2>
                     <h4 className="font-roboto text-base font-bold leading-5 tracking-tighter text-center mt-4 text-[#374754]">
