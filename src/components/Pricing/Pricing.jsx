@@ -5,7 +5,7 @@ function Pricing() {
 
     return (
         <div className="text-center mb-4 font-roboto">
-            <p className="text-4xl pt-2 font-roboto">Pricing</p>
+            <p className="text-4xl pt-2 font-roboto font-bold">Pricing</p>
             <p className="text-xl pt-2 font-roboto">Most calendars are designed for teams. <br />
                 Slate is designed for freelancers</p>
             <p className="text-3xl pt-2 font-roboto"></p>
@@ -15,7 +15,7 @@ function Pricing() {
                 {/* Card 1 */}
 
                 {/* Card 1 */}
-                <div className="overflow-hidden bg-white p-6 m-4 text-left rounded-lg border border-gray-300 shadow-md sm:w-[328px] sm:h-[250px] w-full">
+                <div className="overflow-hidden bg-white p-6 m-6 text-left rounded-lg border border-gray-300 shadow-md sm:w-[328px] sm:h-[250px] w-full">
                     <p className="pl-1 text-xl font-bold mb-2">Free</p>
                     <p className="pl-1 text-lg mb-4 sm:text-sm">Organize across all apps by hand</p>
                     <div className="pl-12 flex items-center justify-start mt-4">
@@ -30,7 +30,7 @@ function Pricing() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="overflow-hidden bg-white p-6 m-4 text-left rounded-lg border border-gray-300 shadow-md sm:w-[328px] sm:h-[250px] w-full">
+                <div className="overflow-hidden bg-white p-6 m-6 text-left rounded-lg border border-gray-300 shadow-md sm:w-[328px] sm:h-[250px] w-full">
                     <p className="pl-1 text-xl font-bold mb-2">STANDARD</p>
                     <p className="pl-1 text-lg mb-4 sm:text-sm">Organize across all apps by hand</p>
                     <div className="pl-12 flex items-center justify-start mt-4">
