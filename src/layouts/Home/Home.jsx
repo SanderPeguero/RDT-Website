@@ -19,7 +19,7 @@ function Home() {
     // Please remove the <br/> tag when you code your asigned component
     return (
         <>
-            <br /><Navbar />
+            <Navbar />
             <Hero1 />
             <br /><Feature />
             <br /><Hero2 />
