@@ -1,5 +1,3 @@
-import './App.css'
-
 import Home from './layouts/Home/Home'
 
 //RW-12
