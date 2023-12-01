@@ -11,13 +11,13 @@ function CTA() {
                         At your fingertips
                     </h3>
 
-                    <h2 className="text-white mt-8 font-roboto text-4xl font-normal leading-[57px] tracking-[0.2px] text-center">
+                    <h2 className="text-white  font-roboto text-4xl font-normal leading-[57px] tracking-[0.2px] text-center">
                         Lightning fast prototyping
                     </h2>
 
                 </div>
 
-                <div className="flex flex-col items-center justify-center w-[373px] h-[264px] gap-3">
+                <div className="flex flex-col items-center justify-center mt-[3rem] w-[373px] h-[264px] gap-3">
                     <h3 className="text-white font-roboto text-lg font-bold leading-[33px] tracking-[0.1px] text-left">
                         Subscribe to our Newsletter
                     </h3>
@@ -25,7 +25,7 @@ function CTA() {
                         Available exclusively on Figmaland
                     </p>
 
-                    <div className="flex flex-col items-center justify-center mt-8">
+                    <div className="flex flex-col items-center justify-center mt-6">
                         <input
                             type="email"
                             placeholder="Your Email"
