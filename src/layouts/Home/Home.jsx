@@ -15,20 +15,20 @@ function Home() {
 
     // Here you should organize the different components that are going to make the website
     // The <br/> tag it's just a line jump so the example text can look good when you run the website
-    
+
     // Please remove the <br/> tag when you code your asigned component
     return (
         <>
-            <br/><Navbar/>
-            <Hero1/>
-            <br/><Feature/>
-            <br/><Hero2/>
-            <br/><CTA/>
-            <br/><Partners/>
-            <br/><Testimonials/>
-            <br/><Pricing/>
-            <br/><Contact/>
-            <br/><Footer/>
+            <br /><Navbar />
+            <Hero1 />
+            <br /><Feature />
+            <br /><Hero2 />
+            <br /><CTA />
+            <br /><Partners />
+            <br /><Testimonials />
+            <br /><Pricing />
+            <br /><Contact />
+            <br /><Footer />
         </>
     )
 
