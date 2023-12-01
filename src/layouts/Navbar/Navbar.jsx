@@ -8,9 +8,10 @@ function Navbar() {
     const toggleMobileMenu = () => {
       setMobileMenuOpen(!isMobileMenuOpen);
     };
-  
+    // <nav className=" max-w-full px-2 sm:px-6 md:px-24 bg-[#000320]">
+    // <div className="relative flex h-16 items-center justify-between">
     return (
-      <nav className="pl-4 pr-6 pt-4 pb-4" style={{ backgroundColor: '#000320' }}>
+      <nav className="max-w-full px-2 sm:px-6 md:px-24 bg-[#000320]  pt-4 pb-4">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
@@ -36,7 +37,7 @@ function Navbar() {
               <MdOutlineSort size={30} style={{ transform: 'scaleX(-1)' }} />
             </button>
             {isMobileMenuOpen && (
-              <div className="absolute top-16 left-0 right-0 bg-black py-2 flex flex-col items-center">
+              <div className="absolute top-16 left-0 right-0 bg-[#000320] py-2 flex flex-col items-center">
                 <button className="block text-white px-4 py-2">Home</button>
                 <button className="block text-white px-4 py-2">Product</button>
                 <button className="block text-white px-4 py-2">Pricing</button>
