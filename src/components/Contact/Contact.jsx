@@ -55,76 +55,76 @@ function Contact() {
                 </div>
 
                 <div className="flex flex-col-reverse  sm:flex-col justify-center md:pl-10">
-                    <div>
-                        <div className="mb-4">
-                            <div className="flex items-center flex-wrap">
-                                <img
-                                    src={Logo1}
-                                    alt="Imagen 1"
-                                    className="h-8 w-8 mb-3 md:mb-0"
-                                />
-                                <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                    6386 Spring St undefined Anchorage,
-                                    <br />
-                                    Georgia 12473 United StatesFastest
-                                </p>
-                            </div>
+                 <div>
+                    <div className="mb-4">
+                        <div className="flex items-center flex-wrap">
+                            <img
+                                src={Logo1}
+                                alt="Imagen 1"
+                                className="h-6 w-6 mb-3 md:mb-0"
+                            />
+                            <p className="text-base md:text-lg ml-2 font-roboto font-bold">
+                                6386 Spring St undefined Anchorage,
+                                <br />
+                                Georgia 12473 United StatesFastest
+                            </p>
                         </div>
+                    </div>
 
-                        <div className="mb-4">
-                            <div className="flex items-center flex-wrap">
-                                <img
-                                    src={Logo2}
-                                    alt="Imagen 2"
-                                    className="h-8 w-8 mb-3 md:mb-0"
-                                />
-                                <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                    (843) 555-0130
-                                </p>
-                            </div>
+                    <div className="mb-4">
+                        <div className="flex items-center flex-wrap">
+                            <img
+                                src={Logo2}
+                                alt="Imagen 2"
+                                className="h-6 w-6 mb-3 md:mb-0"
+                            />
+                            <p className="text-base md:text-lg ml-2 font-roboto font-bold">
+                                (843) 555-0130
+                            </p>
                         </div>
+                    </div>
 
-                        <div className="mb-4">
-                            <div className="flex items-center flex-wrap">
-                                <img
-                                    src={Logo3}
-                                    alt="Imagen 3"
-                                    className="h-8 w-8 mb-3 md:mb-0"
-                                />
-                                <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                    willie.jennings@example.com
-                                </p>
-                            </div>
+                    <div className="mb-4">
+                        <div className="flex items-center flex-wrap">
+                            <img
+                                src={Logo3}
+                                alt="Imagen 3"
+                                className="h-6 w-6 mb-3 md:mb-0"
+                            />
+                            <p className="text-base md:text-lg ml-2 font-roboto font-bold">
+                                willie.jennings@example.com
+                            </p>
                         </div>
-                        <div className="flex items-center justify-center">
-                            <div className="flex flex-row pt-10  mt-4 sm:flex-row sm:justify-center">
-                                <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mr-4">
-                                    <div className="flex items-center flex-wrap">
-                                        <img
-                                            src={Imagen1}
-                                            alt="Imagen 1"
-                                            className=" h-10 w-10 mb-3 sm:mb-0"
-                                        />
-                                    </div>
-
+                    </div>
+                    </div>
+                    <div className="flex items-center justify-center">
+                        <div className="flex flex-row pt-10  mt-4 sm:flex-row sm:justify-center">
+                            <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mr-4">
+                                <div className="flex items-center flex-wrap">
+                                    <img
+                                        src={Imagen1}
+                                        alt="Imagen 1"
+                                        className=" h-10 w-10 mb-3 sm:mb-0"
+                                    />
                                 </div>
-                                <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mx-4">
-                                    <div className="flex items-center  flex-wrap">
-                                        <img
-                                            src={Imagen2}
-                                            alt="Imagen 2"
-                                            className=" h-10 w-10 mb-3 sm:mb-0"
-                                        />
-                                    </div>
+
+                            </div>
+                            <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mx-4">
+                                <div className="flex items-center  flex-wrap">
+                                    <img
+                                        src={Imagen2}
+                                        alt="Imagen 2"
+                                        className=" h-10 w-10 mb-3 sm:mb-0"
+                                    />
                                 </div>
-                                <div className="flex flex-col items-center">
-                                    <div className="flex items-center  flex-wrap">
-                                        <img
-                                            src={Imagen3}
-                                            alt="Imagen 3"
-                                            className=" h-10 w-10 mb-3 sm:mb-0"
-                                        />
-                                    </div>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <div className="flex items-center  flex-wrap">
+                                    <img
+                                        src={Imagen3}
+                                        alt="Imagen 3"
+                                        className=" h-10 w-10 mb-3 sm:mb-0"
+                                    />
                                 </div>
                             </div>
                         </div>
