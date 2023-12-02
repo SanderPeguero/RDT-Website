@@ -11,7 +11,7 @@ function Navbar() {
   // <nav className=" max-w-full px-2 sm:px-6 md:px-24 bg-[#000320]">
   // <div className="relative flex h-16 items-center justify-between">
   return (
-    <nav className="max-w-full px-2 sm:px-6 md:px-24 bg-[#000320]  pt-4 pb-4">
+    <nav className="max-w-full px-2 sm:px-6 md:px-24 bg-[#000320]  pt-4 pb-4  z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
@@ -37,7 +37,7 @@ function Navbar() {
             <MdOutlineSort size={30} style={{ transform: 'scaleX(-1)' }} />
           </button>
           {isMobileMenuOpen && (
-            <div className="absolute top-16 left-0 right-0 bg-[#000320] py-2 flex flex-col items-center">
+            <div className="absolute top-16 left-0 right-0 bg-[#000320] py-2 flex flex-col items-center  z-50">
               <button className="block text-white px-4 py-2">Home</button>
               <button className="block text-white px-4 py-2">Product</button>
               <button className="block text-white px-4 py-2">Pricing</button>
