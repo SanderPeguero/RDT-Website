@@ -28,7 +28,7 @@ function Home() {
             <br /><Testimonials />
             <br /><Pricing />
             <br /><Contact />
-            <br /><Footer /> */}
+            <br /><Footer />
         </>
     )
 
