@@ -4,7 +4,7 @@ import avatar from "./avatar.png"
 function Testimonials() {
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center mb-[4rem] mt-[4rem]">
 
             <div className="text-center mb-24">
                 <h2 className="font-roboto text-4xl font-normal leading-14 tracking-tighter text-[#252B42]">
@@ -15,7 +15,7 @@ function Testimonials() {
             <div className="flex flex-col items-center justify-center">
                 <img
                     src={Brands}
-                    className="mb-16"
+                    className="mb-12"
                 />
                 <h4 className="font-roboto text-base font-bold leading-5 tracking-tighter text-center text-[#374754] mb-12">
                     Most calendars are designed for teams. Slate is designed for freelancers who want a simple <br />way to plan their schedule.
