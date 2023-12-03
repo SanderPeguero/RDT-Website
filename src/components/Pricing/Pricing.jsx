@@ -5,8 +5,8 @@ function Pricing() {
 
     return (
         <div className="text-center mb-4 font-roboto">
-            <p className="text-4xl pt-2 font-roboto font-bold">Pricing</p>
-            <p className="text-xl pt-2 font-roboto">Most calendars are designed for teams. <br />
+            <p className="text-4xl pt-2 font-roboto ">Pricing</p>
+            <p className="text-md pt-2 font-roboto font-light">Most calendars are designed for teams. <br />
                 Slate is designed for freelancers</p>
             <p className="text-3xl pt-2 font-roboto"></p>
 
@@ -26,7 +26,7 @@ function Pricing() {
                             className="w-16 h-12 mr-2"  // Ajusta el tamaño del logo según sea necesario
                         />
                     </div>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-24 sm:py-3 sm:px-12 md:px-16 lg:px-20 rounded-full mt-4 mx-auto block">Order Now</button>
+                    <button className="bg-[#38A3F1] hover:bg-blue-500 text-white font-bold py-3 px-24 sm:py-3 sm:px-12 md:px-16 lg:px-20 rounded-full mt-4 mx-auto block">Order Now</button>
                 </div>
 
                 {/* Card 2 */}
@@ -41,7 +41,7 @@ function Pricing() {
                             className="w-16 h-12 mr-2"  // Ajusta el tamaño del logo según sea necesario
                         />
                     </div>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-24 sm:py-3 sm:px-12 md:px-16 lg:px-20 rounded-full mt-4 mx-auto block">Order Now</button>
+                    <button className="bg-[#38A3F1] hover:bg-blue-500 text-white font-bold py-3 px-24 sm:py-3 sm:px-12 md:px-16 lg:px-20 rounded-full mt-4 mx-auto block">Order Now</button>
                 </div>
 
 

@@ -15,7 +15,7 @@ function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <img src={logo} alt="Logo" className="h-12 w-12 mr-2" />
+          <img src={logo} alt="Logo" className="h-12 mr-2" />
 
         </div>
         {/* Botones para pantallas grandes */}

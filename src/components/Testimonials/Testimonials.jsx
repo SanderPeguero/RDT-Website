@@ -36,7 +36,7 @@ function Testimonials() {
                     </div>
 
                 </div>
-                <button className="mt-16 w-[236px] h-[65px] p-[16px, 0px] rounded-full bg-blue-500 text-white font-roboto font-semibold text-lg leading-[33px] tracking-[0.1px] text-center">
+                <button className="mt-16 w-[236px] h-[65px] p-[16px, 0px] rounded-full bg-[#38A3F1] hover:bg-blue-500 text-white font-roboto font-semibold text-lg leading-[33px] tracking-[0.1px] text-center">
                     More Testimonials
                 </button>
             </div>

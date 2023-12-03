@@ -18,9 +18,6 @@ function Footer() {
 
     return (
         <div className="pb-5 text-center mb-4 font-roboto text-white">
-            <p className="text-4xl text-black pt-2 font-roboto">Contact Us</p>
-            <p className="text-xl pt-2 font-roboto text-black">Most calendars are designed for teams. <br />
-                Slate is designed for freelancers</p>
             <div className="flex flex-col pt-10 pl-5 pr-5  mt-4 sm:flex-row sm:justify-center">
                 <div className="w-full md:w-[250px] mt-10 p-6 md:p-12 bg-white ">
                     {/* Texto principal */}
@@ -92,7 +89,7 @@ function Footer() {
                                         <img
                                             src={Imagen1}
                                             alt="Imagen 1"
-                                            className=" h-10 w-10 mb-3 sm:mb-0"
+                                            className=" h-10 mb-3 sm:mb-0"
                                         />
                                     </div>
 
@@ -102,7 +99,7 @@ function Footer() {
                                         <img
                                             src={Imagen2}
                                             alt="Imagen 2"
-                                            className=" h-10 w-10 mb-3 sm:mb-0"
+                                            className=" h-10 mb-3 sm:mb-0"
                                         />
                                     </div>
                                 </div>
@@ -111,7 +108,7 @@ function Footer() {
                                         <img
                                             src={Imagen3}
                                             alt="Imagen 3"
-                                            className=" h-10 w-10 mb-3 sm:mb-0"
+                                            className=" h-10 mb-3 sm:mb-0"
                                         />
                                     </div>
                                 </div>
