@@ -4,7 +4,7 @@ import container from "./container.png"
 function Hero2() {
 
     return (
-        <div className="flex flex-col items-center justify-center mt-[4rem]">
+        <div className="flex flex-col items-center justify-center mt-[6rem]">
             <div className="flex items-center p-2 gap-4">
                 <h2 className="font-roboto font-normal text-4xl leading-10 tracking-tighter text-center text-black w-80 ">
                     Lightning fast<br />
@@ -18,7 +18,7 @@ function Hero2() {
                 </h4>
             </div>
             <div className="w-72 h-28 p-2 gap-4 mt-8 md:mt-16 flex items-center justify-center">
-                <button className="w-60 h-16 p-4 rounded-full bg-blue-500 text-white font-roboto font-semibold text-base leading-8 tracking-tighter text-center">
+                <button className="w-60 h-16 p-4 rounded-full bg-[#38A3F1] hover:bg-blue-500 text-white font-roboto font-semibold text-base leading-8 tracking-tighter text-center">
                     Try For Free
                 </button>
             </div>
