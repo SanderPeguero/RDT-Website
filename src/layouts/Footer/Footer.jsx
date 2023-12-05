@@ -130,7 +130,7 @@ function Footer() {
 
                     {/* Textos secundarios */}
                     {Page.map((page) => (
-                        <div key={page.id}  className="flex flex-row items-center  justify-between">
+                        <div key={page.id} className="flex flex-row items-center  justify-between">
                             <p className="mb-4 text-black">{page.page}</p>
                             <div className="px-3 py-2 text-right  text-xs leading-4">
                                 <button onClick={() => handleEditPage(page.id)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
@@ -179,22 +179,22 @@ function Footer() {
 
                 <div className="flex flex-col  sm:flex-col justify-center pt-10 md:pl-10">
                     <div>
-                        <div className="mb-4">
+                        <div className="mb-4 mr-8">
                             <div className="flex items-center flex-wrap">
-                                <img
-                                    src={Logo1}
-                                    alt="Imagen 1"
-                                    className="h-8 w-8 mb-3 md:mb-0"
-                                />
                                 <div className="flex flex-row items-center justify-between">
-                                    <p className="text-base md:text-lg ml-2 text-black font-roboto font-bold">
-                                        {text.address.split(/(?<=\,)\s*/).map((sentence, index) => (
-                                            <span key={index}>
-                                                {sentence}
-                                                <br />
+                                    <img
+                                        src={Logo1}
+                                        alt="Imagen 2"
+                                        className="h-6 mb-3 md:mb-0"
+                                    />
+                                    <p className="text-base md:text-lg ml-2 font-roboto font-bold text-black">
+                                        {text.address.split(/,\s*/).map((part, index) => (
+                                            <span key={index} style={{ display: 'block' }}>
+                                                {part}
                                             </span>
                                         ))}
                                     </p>
+
 
                                     <div className="px-3 py-2 text-right  text-xs leading-4">
                                         <button onClick={handleEditAddress} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
@@ -212,12 +212,13 @@ function Footer() {
 
                         <div className="mb-4">
                             <div className="flex items-center flex-wrap">
-                                <img
-                                    src={Logo2}
-                                    alt="Imagen 2"
-                                    className="h-8 w-8 mb-3 md:mb-0"
-                                />
+
                                 <div className="flex flex-row items-center justify-between">
+                                    <img
+                                        src={Logo2}
+                                        alt="Imagen 2"
+                                        className="h-6 mb-3 md:mb-0"
+                                    />
                                     <p className="text-base md:text-lg text-black ml-2 font-roboto font-bold">
                                         {text.phone}
 
@@ -236,12 +237,13 @@ function Footer() {
 
                         <div className="mb-4">
                             <div className="flex items-center flex-wrap">
-                                <img
-                                    src={Logo3}
-                                    alt="Imagen 3"
-                                    className="h-8 w-8 mb-3 md:mb-0"
-                                />
+
                                 <div className="flex flex-row items-center justify-between">
+                                    <img
+                                        src={Logo3}
+                                        alt="Imagen 3"
+                                        className="h-6 mb-3 md:mb-0"
+                                    />
                                     <p className="text-base md:text-lg ml-2 text-black font-roboto font-bold">
                                         {text.email}
                                     </p>
