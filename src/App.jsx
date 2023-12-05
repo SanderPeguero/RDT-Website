@@ -22,7 +22,7 @@ function App() {
   if (isAdmin === false) {
     return (
       <>
-        <Navbar />
+        <Navbar setisAdmin={setisAdmin} isAdmin={isAdmin}/>
         <section id='home'><Hero1 /></section>
         <section id='feature'><Feature /></section>
         <section id='hero2'><Hero2 /></section>
@@ -38,7 +38,7 @@ function App() {
     return (
       <>
         <Routes>
-          <Route path='/admin' element={<Home isAdmin={isAdmin}/>}/>
+          <Route path='/admin' element={<Home setisAdmin={setisAdmin} isAdmin={isAdmin} />}/>
           <Route
             path='/'
             element={<Navigate to='/admin' replace />}

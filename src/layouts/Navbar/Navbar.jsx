@@ -3,13 +3,29 @@ import { MdOutlineSort } from "react-icons/md";
 import logo from "./Logo.png"
 import { Link } from 'react-router-dom';
 import { navLinks } from "./constants/route"
-function Navbar({ isAdmin }) {
+function Navbar({ setisAdmin, isAdmin }) {
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const ChangeTypeUser = (e) => {
+    e.preventDefault();
+    console.log("Actual: " + isAdmin);
+
+    setisAdmin(prevIsAdmin => {
+      if (prevIsAdmin === true) {
+        console.log("User: " + prevIsAdmin);
+        return false;
+      } else {
+        console.log("Admin: " + prevIsAdmin);
+        return true;
+      }
+    });
+  };
+
   // <nav className=" max-w-full px-2 sm:px-6 md:px-24 bg-[#000320]">
   // <div className="relative flex h-16 items-center justify-between">
   return (
@@ -28,16 +44,25 @@ function Navbar({ isAdmin }) {
             <button className="text-white">Pricing</button>
             <button className="text-white">About</button>
             <button className="text-white">Contact</button>
+            <button onClick={ChangeTypeUser} className='text-white'>
+              {isAdmin ? <span>Change admin</span> : <span>Change user</span>}
+            </button>
           </div> :
-            <ul className="hidden md:flex space-x-8">
-              {
-                navLinks.map((nav, index) => (
-                  <li key={index} className={``}>
-                    <a href={`#${nav.id}`} className='text-white px-1 py-2 mt-2 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'>{nav.title}</a>
-                  </li>
-                ))
-              }
-            </ul>
+            <>
+              <ul className="hidden md:flex space-x-8">
+                {
+                  navLinks.map((nav, index) => (
+                    <li key={index} className={``}>
+                      <a href={`#${nav.id}`} className='text-white px-1 py-2 mt-2 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'>{nav.title}</a>
+                    </li>
+                  ))
+                }
+                <button onClick={ChangeTypeUser} className='text-white'>
+                  {isAdmin ? <span>Change admin</span> : <span>Change user</span>}
+                </button>
+              </ul>
+
+            </>
 
         }
 
