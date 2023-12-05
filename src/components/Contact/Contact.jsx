@@ -6,9 +6,37 @@ import Logo2 from "./Logo2.png"
 import Logo3 from "./Logo3.png"
 
 import { IoLocationOutline } from "react-icons/io5";
-
+import { FaEdit } from "react-icons/fa";
+import { useState } from "react"
 
 function Contact() {
+
+    const [text, setText] = useState({
+        phone: '(843) 555-0130',
+        email: 'willie.jennings@example.com',
+        address: ' 6386 Spring St undefined Anchorage,Georgia 12473 United StatesFastest'
+    });
+
+    const handleEditPhone = () => {
+        const newPhone = prompt('Edit phone:', text.phone);
+        if (newPhone !== null) {
+            setText(prevText => ({ ...prevText, phone: newPhone }));
+        }
+    }
+
+    const handleEditEmail = () => {
+        const newEmail = prompt('Edit email:', text.email);
+        if (newEmail !== null) {
+            setText(prevText => ({ ...prevText, email: newEmail }));
+        }
+    }
+
+    const handleEditAddress = () => {
+        const newAddres = prompt('Edit addres: ', text.address)
+        if (newAddres !== null) {
+            setText(prevText => ({ ...prevText, address: newAddres }))
+        }
+    }
 
     return (
         <div className="py-[4rem] text-center mb-4 font-roboto bg-[#000320] text-white">
@@ -67,11 +95,23 @@ function Contact() {
                                     alt="Imagen 1"
                                     className="h-6 mb-3 md:mb-0"
                                 />
-                                <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                    6386 Spring St undefined Anchorage,
-                                    <br />
-                                    Georgia 12473 United StatesFastest
-                                </p>
+                                <div className="flex flex-row items-center justify-between">
+                                    <p className="text-base md:text-lg ml-2 font-roboto font-bold">
+                                        {text.address.split(/(?<=\,)\s*/).map((sentence, index) => (
+                                            <span key={index}>
+                                                {sentence}
+                                                <br />
+                                            </span>
+                                        ))}
+                                    </p>
+
+                                    <div className="px-3 py-2 text-right  text-xs leading-4">
+                                        <button onClick={handleEditAddress} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -82,9 +122,18 @@ function Contact() {
                                     alt="Imagen 2"
                                     className="h-6 mb-3 md:mb-0"
                                 />
-                                <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                    (843) 555-0130
-                                </p>
+                                <div className="flex flex-row items-center justify-between">
+                                    <p className="text-base md:text-lg ml-2 font-roboto font-bold">
+                                        {text.phone}
+
+                                    </p>
+                                    <div className="px-3 py-2 text-right  text-xs leading-4">
+                                        <button onClick={handleEditPhone} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -95,9 +144,17 @@ function Contact() {
                                     alt="Imagen 3"
                                     className="h-4 md:mb-0"
                                 />
-                                <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                    willie.jennings@example.com
-                                </p>
+                                <div className="flex flex-row items-center justify-between">
+                                    <p className="text-base md:text-lg ml-2 font-roboto font-bold">
+                                        {text.email}
+                                    </p>
+                                    <div className="px-3 py-2 text-right  text-xs leading-4">
+                                        <button onClick={handleEditEmail} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
