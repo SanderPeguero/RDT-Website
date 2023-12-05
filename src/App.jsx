@@ -18,37 +18,23 @@ function App() {
   const [isAdmin, setisAdmin] = useState(true)
 
   // Here you should put all the routes to the different pages or the sections so the website can move when a user clicks on a route
+  return (
+    <>
+      <Navbar setisAdmin={setisAdmin} isAdmin={isAdmin} />
+      <Routes>
+        {isAdmin ? (
+          <Route path='/admin/*' element={<Home setisAdmin={setisAdmin} isAdmin={isAdmin} />} />
+        ) : (
+          <Route path='/home/*' element={<Home setisAdmin={setisAdmin} isAdmin={isAdmin} />} />
+        )}
+        <Route
+          path='/*'
+          element={<Navigate to={isAdmin ? '/admin' : '/home'} replace />}
+        />
+      </Routes>
 
-  if (isAdmin === false) {
-    return (
-      <>
-        <Navbar setisAdmin={setisAdmin} isAdmin={isAdmin}/>
-        <section id='home'><Hero1 /></section>
-        <section id='feature'><Feature /></section>
-        <section id='hero2'><Hero2 /></section>
-        <section id='cta'><CTA /></section>
-        <section id='partners'><Partners /></section>
-        <section id='testimonials'><Testimonials /></section>
-        <section id='pricing'><Pricing /></section>
-        <section id='contact'><Contact /></section>
-        <Footer />
-      </>
-    )
-  } else {
-    return (
-      <>
-        <Routes>
-          <Route path='/admin' element={<Home setisAdmin={setisAdmin} isAdmin={isAdmin} />}/>
-          <Route
-            path='/'
-            element={<Navigate to='/admin' replace />}
-          />
-        </Routes>
-      </>
-    )
-  }
-
-
+    </>
+  )
 }
 
 export default App

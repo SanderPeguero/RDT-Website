@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer"
 
 
 //RW-12
-function Home({setisAdmin={setisAdmin}, isAdmin}) {
+function Home({ setisAdmin = { setisAdmin }, isAdmin }) {
 
     // Here you should organize the different components that are going to make the website
     // The <br/> tag it's just a line jump so the example text can look good when you run the website
@@ -19,16 +19,15 @@ function Home({setisAdmin={setisAdmin}, isAdmin}) {
     // Please remove the <br/> tag when you code your asigned component
     return (
         <>
-            <Navbar setisAdmin={setisAdmin} isAdmin={isAdmin}/>
-            <Hero1 />
-            <br /><Feature />
-            <br /><Hero2 />
-            <br /><CTA />
-            <br /><Partners />
-            <br /><Testimonials />
-            <br /><Pricing />
-            <br /><Contact />
-            <br /><Footer />
+            <section id='home'><Hero1 /></section>
+            <section id='feature'><Feature /></section>
+            <section id='hero2'><Hero2 /></section>
+            <section id='cta'><CTA /></section>
+            <section id='partners'><Partners /></section>
+            <section id='testimonials'><Testimonials /></section>
+            <section id='pricing'><Pricing /></section>
+            <section id='contact'><Contact /></section>
+            <Footer />
         </>
     )
 
