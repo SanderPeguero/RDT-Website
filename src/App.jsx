@@ -15,7 +15,7 @@ function App() {
           <Route path="/todolist" element={""} component={""} />
           <Route path="/categories" element={""} component={""} />
           <Route path="/categories" element={""} component={""} />
-          <Route path='/admin' element={<Home />} />
+          <Route path='/Home' element={<Home />} />
           <Route path="/LogIn" element={<LogIn />} component={""} />
 
         </Route>
