@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdOutlineSort } from "react-icons/md";
+import { Link } from 'react-router-dom';
 import logo from "./Logo.png"
 function Navbar() {
 
@@ -25,6 +26,7 @@ function Navbar() {
           <button className="text-white">Pricing</button>
           <button className="text-white">About</button>
           <button className="text-white">Contact</button>
+          <Link to={"LogIn"} className="text-white">LogIn</Link>
         </div>
 
 
@@ -43,6 +45,7 @@ function Navbar() {
               <button className="block text-white px-4 py-2">Pricing</button>
               <button className="block text-white px-4 py-2">About</button>
               <button className="block text-white px-4 py-2">Contact</button>
+              <Link to={"/LogIn"} className="block text-white px-4 py-2">LogIn</Link>
             </div>
           )}
         </div>

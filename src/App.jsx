@@ -1,5 +1,6 @@
 import Home from './layouts/Home/Home'
-
+import { Outlet, Route, Routes } from 'react-router-dom'
+import LogIn from "./layouts/LogIn/LogIn"
 //RW-12
 function App() {
 
@@ -7,7 +8,19 @@ function App() {
 
   return (
     <>
-      <Home />
+   
+      <Routes>
+        <Route>
+          <Route path="" element={<Home />} />
+          <Route path="/todolist" element={""} component={""} />
+          <Route path="/categories" element={""} component={""} />
+          <Route path="/categories" element={""} component={""} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/LogIn" element={<LogIn />} component={""} />
+
+        </Route>
+      </Routes>
+      <Outlet />
     </>
   )
 
