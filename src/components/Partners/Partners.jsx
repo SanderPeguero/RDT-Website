@@ -446,18 +446,18 @@ function Partners() {
                             <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
                                 <div className="flex flex-col items-center justify-center">
                                     <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
-                                        {QuintoTitulo}
+                                        {SextoTitulo}
                                     </h6>
                                     <div className="">
                                         <img
-                                            src={QuintaImagen}
+                                            src={SextaImagen}
                                             alt={""}
                                             className="mx-auto"
                                         />
                                     </div>
                                     <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
                                     <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
-                                           {QuintaDescripcion}
+                                           {SextaDescripcion}
                                         </p>
                                     </div>
                                 </div>
