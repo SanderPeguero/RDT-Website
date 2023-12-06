@@ -113,7 +113,7 @@ function Partners() {
     return (
         <div>
             <div className="bg-white relative flex flex-col items-center justify-center mb-[4rem] mt-[2rem]" onClick={pr}>
-                {openmodal == false ?
+                {storedData=="email" && openmodal == false ?
 
                     <div className='absolute inset-0 flex items-center justify-center z-50' onClick={() => { setOpenmodal(true), setband(true) }}>
                         <div className="flex flex-col justify-center mt-12 overflow-hidden" onClick={STOP}>
@@ -345,7 +345,7 @@ function Partners() {
                     </h4>
 
                 </div>
-                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8">
+                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8" onClick={() => setOpenmodal(false)}>
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                         
                             <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
