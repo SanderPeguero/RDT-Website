@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 // import { toast } from "react-toastify"
 const LogIn = () => {
     
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
-
+    const history = useNavigate();
 
     const LogInHandler = async (e) => {
         e.preventDefault();
@@ -28,6 +28,7 @@ const LogIn = () => {
                 return
             } else {
                 localStorage.setItem('D', "email");
+                history('/Admin');
                 // if(email=="admin" && password=="admin")
                 // {
                 //     localStorage.setItem('D', "email");
@@ -61,10 +62,11 @@ const LogIn = () => {
                                 onChange={(e) => setpassword(e.target.value)}
                                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                             />
-                    
-                            <Link
+                             
+                            <button
+                            
+                            to={"/Home"}
                             onClick={LogInHandler}
-                            to={"/"}
                                 type="submit"
                                 className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                             >
@@ -78,7 +80,7 @@ const LogIn = () => {
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
-                            </Link>
+                            </button>
                         
                         </div>
                     </form>
