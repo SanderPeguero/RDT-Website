@@ -113,7 +113,7 @@ function Partners() {
     return (
         <div>
             <div className="bg-white relative flex flex-col items-center justify-center mb-[4rem] mt-[2rem]" onClick={pr}>
-                {openmodal != false ?
+                {openmodal == false ?
 
                     <div className='absolute inset-0 flex items-center justify-center z-50' onClick={() => { setOpenmodal(true), setband(true) }}>
                         <div className="flex flex-col justify-center mt-12 overflow-hidden" onClick={STOP}>
