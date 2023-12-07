@@ -51,9 +51,7 @@ const partners = [
 ]
 //RW-5
 function Partners() {
-
-    const [openmodal, setOpenmodal] = useState(true)
-    const [band, setband] = useState(true)
+    
     const [storedData, setstoredData] = useState("")
     const [PrimerTitulo, setPrimerTitulo] = useState("Client Name");
     const [SegundoTitulo, setSegundoTitulo] = useState("Client Name");
@@ -75,265 +73,215 @@ function Partners() {
     const [CuartaDescripcion, setCuartaDescripcion] = useState(" Slate helps you see how many more days you need to work to reach your financial goal for the month and year.");
     const [QuintaDescripcion, setQuintaDescripcion] = useState(" Slate helps you see how many more days you need to work to reach your financial goal for the month and year.");
     const [SextaDescripcion, setSextaDescripcion] = useState(" Slate helps you see how many more days you need to work to reach your financial goal for the month and year.");
-    
+
     const STOP = (e) => {
         e.stopPropagation();
     }
 
-    const Editar = () => {
-        setband(false)
-    }
-    const Eliminar = () => {
-        setPrimerTitulo("")
-        setSegundoTitulo("")
-        setTerceroTitulo("")
-        setCuartoTitulo("")
-        setQuintoTitulo("")
-        setSextoTitulo("")
+    const Editar = (dato) => {
+        let d
+        switch (dato) {
+            case 1:
 
-        setPrimerImagen("")
-        setSegundaImagen("")
-        setTerceraImagen("")
-        setCuartaImagen("")
-        setQuintaImagen("")
-        setSextaImagen("")
+                d = prompt('Edit title:', PrimerTitulo)
+                setPrimerTitulo(d !== null ? d : PrimerTitulo);
 
-        setPrimerDescripcion("")
-        setSegundaDescripcion("")
-        setTerceraDescripcion("")
-        setCuartaDescripcion("")
-        setQuintaDescripcion("")
-        setSextaDescripcion("")
+
+                break;
+
+            case 2:
+
+                d = prompt('Edit title:', SegundoTitulo)
+                setSegundoTitulo(d !== null ? d : SegundoTitulo);
+
+
+                break;
+
+            case 3:
+
+                d = prompt('Edit title:', TerceroTitulo)
+                setTerceroTitulo(d !== null ? d : TerceroTitulo);
+                break;
+            case 4:
+                d = prompt('Edit title:', CuartoTitulo)
+                setCuartoTitulo(d !== null ? d : CuartoTitulo);
+
+                break;
+            case 5:
+
+                d = prompt('Edit title:', QuintoTitulo)
+                setQuintoTitulo(d !== null ? d : QuintoTitulo);
+
+                break;
+            case 6:
+                d = prompt('Edit title:', SextoTitulo)
+                setSextoTitulo(d !== null ? d : SextoTitulo);
+
+                break;
+
+            case 7:
+
+                d = prompt('Edit title:', PrimerImagen)
+                setPrimerImagen(d !== null ? d : PrimerImagen);
+
+                break;
+            case 8:
+                d = prompt('Edit title:', SegundaImagen)
+                setSegundaImagen(d !== null ? d : SegundaImagen);
+
+                break;
+            case 9:
+                d = prompt('Edit title:', TerceraImagen)
+                setTerceraImagen(d !== null ? d : TerceraImagen);
+
+                break;
+            case 10:
+                d = prompt('Edit title:', CuartaImagen)
+                setCuartaImagen(d !== null ? d : CuartaImagen);
+
+                break;
+            case 11:
+                d = prompt('Edit title:', QuintaImagen)
+                setQuintaImagen(d !== null ? d : QuintaImagen);
+
+                break;
+            case 12:
+                d = prompt('Edit title:', SextaImagen)
+                setSextaImagen(d !== null ? d : SextaImagen);
+
+                break;
+            case 13:
+                d = prompt('Edit title:', PrimerDescripcion)
+                setPrimerDescripcion(d !== null ? d : PrimerDescripcion);
+
+                break;
+            case 14:
+                d = prompt('Edit title:', SegundaDescripcion)
+                setSegundaDescripcion(d !== null ? d : SegundaDescripcion);
+
+
+                break;
+            case 15:
+                d = prompt('Edit title:', TerceraDescripcion)
+                setTerceraDescripcion(d !== null ? d : TerceraDescripcion);
+
+
+                break;
+            case 16:
+                d = prompt('Edit title:', CuartaDescripcion)
+                setCuartaDescripcion(d !== null ? d : CuartaDescripcion);
+
+
+                break;
+            case 17:
+                d = prompt('Edit title:', QuintaDescripcion)
+                setQuintaDescripcion(d !== null ? d : QuintaDescripcion);
+
+                break;
+            case 18:
+                d = prompt('Edit title:', SextaDescripcion)
+                setSextaDescripcion(d !== null ? d : SextaDescripcion);
+
+                break;
+
+            default:
+
+        }
     }
-    const pr = () => {
+    const Eliminar = (dato) => {
+        switch (dato) {
+            case 1:
+
+                setPrimerTitulo("");
+
+                break;
+
+            case 2:
+
+                setSegundoTitulo("")
+
+                break;
+
+            case 3:
+
+                setTerceroTitulo("")
+
+                break;
+            case 4:
+                setCuartoTitulo("")
+
+                break;
+            case 5:
+
+                setQuintoTitulo("")
+
+                break;
+            case 6:
+                setSextoTitulo("")
+
+                break;
+
+            case 7:
+                setPrimerImagen("")
+
+                break;
+            case 8:
+                setSegundaImagen("")
+
+                break;
+            case 9:
+                setTerceraImagen("")
+
+                break;
+            case 10:
+                setCuartaImagen("")
+
+                break;
+            case 11:
+                setQuintaImagen("")
+
+                break;
+            case 12:
+                setSextaImagen("")
+
+                break;
+            case 13:
+                setPrimerDescripcion("")
+
+                break;
+            case 14:
+                setSegundaDescripcion("")
+
+                break;
+            case 15:
+                setTerceraDescripcion("")
+
+                break;
+            case 16:
+                setCuartaDescripcion("")
+
+                break;
+            case 17:
+                setQuintaDescripcion("")
+
+                break;
+            case 18:
+                setSextaDescripcion("")
+
+                break;
+
+            default:
+
+        }
+    }
+    useEffect(() => {
         setstoredData(localStorage.getItem('D'));
-    }
+    }, [])
 
 
     return (
         <div>
-            <div className="bg-white relative flex flex-col items-center justify-center mb-[4rem] mt-[2rem]" onClick={pr}>
-                {storedData=="email" && openmodal == false ?
-
-                    <div className='absolute inset-0 flex items-center justify-center z-50' onClick={() => { setOpenmodal(true), setband(true) }}>
-                        <div className="flex flex-col justify-center mt-12 overflow-hidden" onClick={STOP}>
-                            <div className="relative py-3 w-full md:w-auto">
-                                <div className="relative px-4 py-8 bg-white mx-8 md:mx-0 shadow rounded-3xl border border-black p-4 sm:p-8 w-full">
-                                    <div className="max-w-screen-md mx-auto">
-                                        <div className="flex items-center justify-center space-x-5 mb-4"> {/* Añadido espacio vertical (margin-bottom) */}
-                                            <div className="block pl-2 font-semibold text-xl self-start text-gray-700">
-                                                <h2 className="leading-relaxed">To Do Detail</h2>
-                                                <p className="text-sm text-gray-500 font-normal leading-relaxed">Task Detail</p>
-                                            </div>
-                                        </div>
-                                        <div className="divide-y divide-gray-200">
-                                            <div className="py-6 flex flex-col text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                                                <div className="flex mb-4"> {/* Added vertical space (margin-bottom) */}
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">1 Title </label>
-                                                        <input
-                                                            type="text"
-                                                            value={PrimerTitulo}
-                                                            onChange={(e) => setPrimerTitulo(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">2 Title </label>
-                                                        <input
-                                                            type="text"
-                                                            value={SegundoTitulo}
-                                                            onChange={(e) => setSegundoTitulo(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">3 Title </label>
-                                                        <input
-                                                            type="text"
-                                                            value={TerceroTitulo}
-                                                            onChange={(e) => setTerceroTitulo(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div> <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">4 Title </label>
-                                                        <input
-                                                            type="text"
-                                                            value={CuartoTitulo}
-                                                            onChange={(e) => setCuartoTitulo(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div> <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">5 Title </label>
-                                                        <input
-                                                            type="text"
-                                                            value={QuintoTitulo}
-                                                            onChange={(e) => setQuintoTitulo(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col">
-                                                        <label className="leading-loose">6 Title</label>
-                                                        <input
-                                                            type="text"
-                                                            value={SextoTitulo}
-                                                            onChange={(e) => setSextoTitulo(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="flex mb-4"> {/* Added vertical space (margin-bottom) */}
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">1 Image(url)</label>
-                                                        <input
-                                                            type="text"
-                                                            value={PrimerImagen}
-                                                            onChange={(e) => setPrimerImagen(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">2 Image(url)</label>
-                                                        <input
-                                                            type="text"
-                                                            value={SegundaImagen}
-                                                            onChange={(e) => setSegundaImagen(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">3 Image(url)</label>
-                                                        <input
-                                                            type="text"
-                                                            value={TerceraImagen}
-                                                            onChange={(e) => setTerceraImagen(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div> <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">4 Image(url)</label>
-                                                        <input
-                                                            type="text"
-                                                            value={CuartaImagen}
-                                                            onChange={(e) => setCuartaImagen(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div> <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">5 Image(url)</label>
-                                                        <input
-                                                            type="text"
-                                                            value={QuintaImagen}
-                                                            onChange={(e) => setQuintaImagen(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col">
-                                                        <label className="leading-loose">6 Image(url)</label>
-                                                        <input
-                                                            type="text"
-                                                            value={SextaImagen}
-                                                            onChange={(e) => setSextaImagen(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="flex mb-4"> {/* Added vertical space (margin-bottom) */}
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">1 Description</label>
-                                                        <input
-                                                            type="text"
-                                                            value={PrimerDescripcion}
-                                                            onChange={(e) => setPrimerDescripcion(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">2 Description</label>
-                                                        <input
-                                                            type="text"
-                                                            value={SegundaDescripcion}
-                                                            onChange={(e) => setSegundaDescripcion(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">3 Description</label>
-                                                        <input
-                                                            type="text"
-                                                            value={TerceraDescripcion}
-                                                            onChange={(e) => setTerceraDescripcion(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">4 Description</label>
-                                                        <input
-                                                            type="text"
-                                                            value={CuartaDescripcion}
-                                                            onChange={(e) => setCuartaDescripcion(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                                                        <label className="leading-loose">5 Description</label>
-                                                        <input
-                                                            type="text"
-                                                            value={QuintaDescripcion}
-                                                            onChange={(e) => setQuintaDescripcion(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 flex flex-col">
-                                                        <label className="leading-loose">6 Description</label>
-                                                        <input
-                                                            type="text"
-                                                            value={SextaDescripcion}
-                                                            onChange={(e) => setSextaDescripcion(e.target.value)}
-                                                            className="mt-1 p-2 w-full border rounded-md"
-                                                            disabled={band}
-                                                        />
-                                                    </div>
-                                                </div>
-
-                                                {/* Add buttons in the center */}
-                                                <div className="flex justify-center mt-4">
-                                                    <button className="bg-yellow-500 text-white px-4 py-2 rounded-md mr-2"
-                                                        onClick={Editar}>
-                                                        <FaEdit></FaEdit>
-                                                    </button>
-                                                    <button className="bg-red-500 text-white px-4 py-2 rounded-md"
-                                                        onClick={Eliminar}>
-                                                        <MdDelete></MdDelete>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> : ""}
+            <div className="bg-white relative flex flex-col items-center justify-center mb-[4rem] mt-[2rem]" >
 
 
                 <div className="">
@@ -345,124 +293,378 @@ function Partners() {
                     </h4>
 
                 </div>
-                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8" onClick={() => setOpenmodal(false)}>
+                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8" >
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                        
-                            <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
-                                <div className="flex flex-col items-center justify-center">
-                                    <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
-                                        {PrimerTitulo}
-                                    </h6>
-                                    <div className="">
-                                        <img
-                                            src={PrimerImagen}
-                                            alt={""}
-                                            className="mx-auto"
-                                        />
+
+                        <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
+                            <div className="flex flex-col items-center justify-center">
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(1)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(1)} className="text-red-500" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
+                                    : null}
+                                <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
+                                    {PrimerTitulo}
+                                </h6>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(7)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(7)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="">
+                                    <img
+                                        src={PrimerImagen}
+                                        alt={""}
+                                        className="mx-auto"
+                                    />
+                                </div>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(13)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(13)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
                                     <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
-                                           {PrimerDescripcion}
-                                        </p>
-                                    </div>
+                                        {PrimerDescripcion}
+                                    </p>
                                 </div>
                             </div>
-                              <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
-                                <div className="flex flex-col items-center justify-center">
-                                    <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
-                                        {SegundoTitulo}
-                                    </h6>
-                                    <div className="">
-                                        <img
-                                            src={SegundaImagen}
-                                            alt={""}
-                                            className="mx-auto"
-                                        />
+                        </div>
+                        <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
+                            <div className="flex flex-col items-center justify-center">
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(2)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(2)} className="text-red-500" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
+                                    : null}
+                                <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
+                                    {SegundoTitulo}
+                                </h6>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(8)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(8)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="">
+                                    <img
+                                        src={SegundaImagen}
+                                        alt={""}
+                                        className="mx-auto"
+                                    />
+                                </div>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(14)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(14)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
                                     <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
-                                           {SegundaDescripcion}
-                                        </p>
-                                    </div>
+                                        {SegundaDescripcion}
+                                    </p>
                                 </div>
                             </div>
-                            <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
-                                <div className="flex flex-col items-center justify-center">
-                                    <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
-                                        {TerceroTitulo}
-                                    </h6>
-                                    <div className="">
-                                        <img
-                                            src={TerceraImagen}
-                                            alt={""}
-                                            className="mx-auto"
-                                        />
+                        </div>
+                        <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
+                            <div className="flex flex-col items-center justify-center">
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(3)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(3)} className="text-red-500" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
+                                    : null}
+                                <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
+                                    {TerceroTitulo}
+                                </h6>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(9)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(9)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="">
+                                    <img
+                                        src={TerceraImagen}
+                                        alt={""}
+                                        className="mx-auto"
+                                    />
+                                </div>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(15)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(15)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
                                     <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
-                                           {TerceraDescripcion}
-                                        </p>
-                                    </div>
+                                        {TerceraDescripcion}
+                                    </p>
                                 </div>
                             </div>
-                            <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
-                                <div className="flex flex-col items-center justify-center">
-                                    <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
-                                        {CuartoTitulo}
-                                    </h6>
-                                    <div className="">
-                                        <img
-                                            src={CuartaImagen}
-                                            alt={""}
-                                            className="mx-auto"
-                                        />
+                        </div>
+                        <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
+                            <div className="flex flex-col items-center justify-center">
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(4)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(4)} className="text-red-500" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
+                                    : null}
+
+                                <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
+                                    {CuartoTitulo}
+                                </h6>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(10)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(10)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="">
+                                    <img
+                                        src={CuartaImagen}
+                                        alt={""}
+                                        className="mx-auto"
+                                    />
+                                </div>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(16)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(16)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
                                     <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
-                                          {CuartaDescripcion}
-                                        </p>
-                                    </div>
+                                        {CuartaDescripcion}
+                                    </p>
                                 </div>
                             </div>
-                            <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
-                                <div className="flex flex-col items-center justify-center">
-                                    <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
-                                        {QuintoTitulo}
-                                    </h6>
-                                    <div className="">
-                                        <img
-                                            src={QuintaImagen}
-                                            alt={""}
-                                            className="mx-auto"
-                                        />
+                        </div>
+                        <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
+                            <div className="flex flex-col items-center justify-center">
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(5)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(5)} className="text-red-500" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
+                                    : null}
+                                <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
+                                    {QuintoTitulo}
+                                </h6>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(11)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(11)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="">
+                                    <img
+                                        src={QuintaImagen}
+                                        alt={""}
+                                        className="mx-auto"
+                                    />
+                                </div>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(17)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(17)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
                                     <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
-                                           {QuintaDescripcion}
-                                        </p>
-                                    </div>
+                                        {QuintaDescripcion}
+                                    </p>
                                 </div>
                             </div>
-                            <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
-                                <div className="flex flex-col items-center justify-center">
-                                    <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
-                                        {SextoTitulo}
-                                    </h6>
-                                    <div className="">
-                                        <img
-                                            src={SextaImagen}
-                                            alt={""}
-                                            className="mx-auto"
-                                        />
+                        </div>
+                        <div className="group relative w-56 h-72 md:w-auto md:h-auto mx-12 my-8">
+                            <div className="flex flex-col items-center justify-center">
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(6)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(6)} className="text-red-500" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
+                                    : null}
+                                <h6 className="font-roboto text-xs font-bold leading-5 tracking-tighter text-center my-8">
+                                    {SextoTitulo}
+                                </h6>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(12)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(12)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+                                <div className="">
+                                    <img
+                                        src={SextaImagen}
+                                        alt={""}
+                                        className="mx-auto"
+                                    />
+                                </div>
+                                {storedData ?
+                                    <div className="flex flex-row">
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} onClick={(e) => Editar(18)} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                        <div className="px-3 py-2 text-right text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                                <MdDelete size={14} onClick={(e) => Eliminar(18)} className="text-red-500" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    : null}
+
+                                <div className="font-roboto text-base font-normal leading-7 tracking-tighter text-center mt-6">
                                     <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
-                                           {SextaDescripcion}
-                                        </p>
-                                    </div>
+                                        {SextaDescripcion}
+                                    </p>
                                 </div>
                             </div>
-                        
+                        </div>
+
                     </div>
                 </div>
                 <button className="w-[236px] h-[65px] p-[16px, 0px] rounded-full bg-[#38A3F1] hover:bg-blue-500 text-white font-roboto font-semibold text-lg leading-[33px] tracking-[0.1px] text-center">
