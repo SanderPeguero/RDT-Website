@@ -2,30 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Vector1 from "./Vector1.png"
 import Vector2 from "./Vector2.png"
 import Vector3 from "./Vector3.png"
-
-const features = [
-  {
-    id: 1,
-    imageSrc: Vector1,
-    title: "Fastest way  to organize",
-    description: "Slate helps you see how many more days you need to work to reach your financial goal for the month and year.",
-
-  },
-  {
-    id: 2,
-    imageSrc: Vector2,
-    title: "The best products start with Sketch",
-    description: "Slate helps you see how many more days you need to work to reach your financial goal for the month and year.",
-  },
-
-  {
-    id: 3,
-    imageSrc: Vector3,
-    title: "Work better together",
-    description: "Slate helps you see how many more days you need to work to reach your financial goal for the month and year.",
-  },
-]
-
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 function Feature() {
 
   const [storedData, setstoredData] = useState("")
@@ -266,68 +244,8 @@ function Feature() {
               : null}
           </div>
         </div>
-
       </div>
-    </div >
-    // <div className="text-center mb-4 font-roboto flex flex-col items-center justify-center mx-8">
-    //   <p className="text-1xl pt-20 font-roboto font-bold">At your fingertip</p>
-    //   <p className="text-4xl pt-4 font-roboto">Features</p>
-
-    //   <p className=" pt-4 font-roboto">Most calendars are designed for teams. <br />
-    //     Slate is designed for freelancers</p>
-    //   <p className="text-3xl pt-2 font-roboto"></p>
-
-    //   <div className="flex flex-col items-center justify-center pt-16 md:flex-row   sm:flex-row sm:justify-center">
-    //       {/* Here 1 */}
-    //     <div className="flex flex-col items-center justify-center mb-[4rem] sm:mb-0 sm:mx-16">
-    //       <div className="flex items-center justify-center  flex-wrap">
-    //         <img
-    //           src={Vector2}
-    //           alt="Imagen 2"
-    //           className="rounded-full ml-10 h-8 w-8 mb-3 sm:mb-0"
-    //         />
-    //         <h3 className=" ml-2 font-roboto font-bold text-left">Fastest way to<br />organize</h3>
-    //       </div>
-    //       <p className="text-sm mt-2 font-roboto text-left ml-[5rem] w-[14rem]">
-    //         Slate help you see how many more days you need to work to reach your financial goal.
-    //       </p>
-    //     </div>
-    //     {/* Here 1 */}
-    //     {/* Here 2 */}
-    //     <div className="flex flex-col items-center justify-center mb-[4rem] sm:mb-0 sm:mr-16">
-    //       <div className="flex items-center justify-center flex-wrap">
-    //         <img
-    //           src={Vector1}
-    //           alt="Imagen 1"
-    //           className="rounded-full ml-10 h-8 w-8 mb-3 sm:mb-0"
-    //         />
-
-    //         <h3 className=" ml-2 font-roboto font-bold text-left">The best products <br />start with Sketch</h3>
-    //       </div>
-    //       <p className="text-sm mt-2 font-roboto text-left ml-[6rem] w-[14rem]">
-    //         Slate help you see how many more days you need to work to reach your financial goal.
-    //       </p>
-    //     </div>
-    //     {/* Here 2 */}
-    //     {/* Here 3 */}
-    //     <div className="flex flex-col items-center justify-center mb-[4rem] sm:mb-0 sm:mx-16">
-    //       <div className="flex items-center justify-center flex-wrap">
-    //         <img
-    //           src={Vector3}
-    //           alt="Imagen 3"
-    //           className="rounded-full mr-5 h-8 w-8 mb-3 sm:mb-0"
-    //         />
-    //         <h3 className="  font-roboto font-bold text-left">Work better<br />together</h3>
-    //       </div>
-    //       <p className="text-sm mt-2  font-roboto text-left ml-[3.5rem] w-[12rem]">
-    //         Slate help you see how many more days you need to work to reach your financial goal.
-
-    //       </p>
-    //     </div>
-    //     {/* Here 3 */}
-    //   </div>
-    // </div>
-
+    </>
   )
 
 }
