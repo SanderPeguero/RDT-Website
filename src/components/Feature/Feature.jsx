@@ -61,7 +61,7 @@ function Feature() {
     <div>
       <div className="bg-white flex flex-col items-center justify-center mb-[4rem] mt-[2rem]">
         <div className="">
-          <h4 class="font-roboto text-base font-bold leading-5 tracking-tighter text-center  mt-4">
+          <h4 className="font-roboto text-base font-bold leading-5 tracking-tighter text-center  mt-4">
             At your fingertip
           </h4>
           <h2 className="font-roboto text-4xl font-normal leading-14 tracking-tighter text-center text-blue-950  py-4">
