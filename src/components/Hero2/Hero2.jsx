@@ -11,10 +11,10 @@ function Hero2() {
     });
     const handleEditImgHero2 = (e) => {
         const selectedimageHero2 = e.target.files[0];
-
         if (selectedimageHero2) {
             const imageHero2Url = URL.createObjectURL(selectedimageHero2);
             setimageHero2(imageHero2Url)
+            console.log("Hero 2 Here")
         }
     }
 
@@ -84,7 +84,7 @@ function Hero2() {
                         </div>
                     </div>
                 </h4>
-            </div> 
+            </div>
             <div className="w-72 h-28 p-2 gap-4 mt-8 md:mt-16 flex items-center justify-center">
                 <button className="w-60 h-16 p-4 rounded-full bg-[#38A3F1] hover:bg-blue-500 text-white font-roboto font-semibold text-base leading-8 tracking-tighter text-center">
                     Try For Free
@@ -92,13 +92,13 @@ function Hero2() {
             </div>
             <div className="mt-8 md:mt-4 w-120 md:w-150">
                 <div className="flex flex-row ml-[10rem]">
-                    <label htmlFor="file-upload" className="px-3 py-2 text-right  text-xs leading-4">
+                    <label htmlFor="file-upload-Hero2" className="px-3 py-2 text-right text-xs leading-4">
                         <div className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                            <input id="file-upload" type="file" onChange={handleEditImgHero2} className="hidden" />
                             <FaEdit size={14} className="text-yellow-400" />
+                            <input id="file-upload-Hero2" type="file" onChange={handleEditImgHero2} style={{ display: 'none' }} />
                         </div>
-
                     </label>
+
 
                     <div className="px-3 py-2  text-right  text-xs leading-4">
                         <button onClick={handleDeleteImgHero2} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
