@@ -4,22 +4,22 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 //RW-3
 function Hero2() {
-    const [image, setImage] = useState(container);
+    const [imageHero2, setimageHero2] = useState(container);
     const [text, setText] = useState({
         title: 'Lightning fast prototyping',
         description: 'Most calendars are designed for teams. Slate is designed for freelancers',
     });
-    const handleEditImg = (e) => {
-        const selectedImage = e.target.files[0];
+    const handleEditImgHero2 = (e) => {
+        const selectedimageHero2 = e.target.files[0];
 
-        if (selectedImage) {
-            const imageUrl = URL.createObjectURL(selectedImage);
-            setImage(imageUrl)
+        if (selectedimageHero2) {
+            const imageHero2Url = URL.createObjectURL(selectedimageHero2);
+            setimageHero2(imageHero2Url)
         }
     }
 
-    const handleDeleteImg = () => {
-        setImage(null)
+    const handleDeleteImgHero2 = () => {
+        setimageHero2(null)
     };
 
     const handleEditTitle = () => {
@@ -94,19 +94,19 @@ function Hero2() {
                 <div className="flex flex-row ml-[10rem]">
                     <label htmlFor="file-upload" className="px-3 py-2 text-right  text-xs leading-4">
                         <div className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                            <input id="file-upload" type="file" onChange={handleEditImg} className="hidden" />
+                            <input id="file-upload" type="file" onChange={handleEditImgHero2} className="hidden" />
                             <FaEdit size={14} className="text-yellow-400" />
                         </div>
 
                     </label>
 
                     <div className="px-3 py-2  text-right  text-xs leading-4">
-                        <button onClick={handleDeleteImg} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                        <button onClick={handleDeleteImgHero2} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
                             <MdDelete size={14} className="text-red-500" />
                         </button>
                     </div>
                 </div>
-                <img className="mb-[4rem]" src={image} />
+                <img className="mb-[4rem]" src={imageHero2} />
             </div>
         </div>
     )
