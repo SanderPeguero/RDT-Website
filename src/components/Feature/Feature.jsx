@@ -5,8 +5,7 @@ import Vector3 from "./Vector3.png"
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 function Feature() {
-  const [openmodal, setOpenmodal] = useState(true)
-  const [band, setband] = useState(true)
+
   const [storedData, setstoredData] = useState("")
   const [PrimerTitulo, setPrimerTitulo] = useState("Fastest way to organize")
   const [SegundoTitulo, setSegundoTitulo] = useState("The best products start with Sketch")
@@ -15,131 +14,100 @@ function Feature() {
   const [SegundoDescripcion, setSegundoDescripcion] = useState("Slate help you see how many more days you need to work to reach your financial goal.")
   const [TerceroDescripcion, setTerceroDescripcion] = useState("Slate help you see how many more days you need to work to reach your financial goal.")
 
-  const STOP = (e) => {
-    e.stopPropagation();
-  }
+  const Editar = (dato) => {
+    let d
+    switch (dato) {
+      case 1:
+        d = prompt('Edit title:', PrimerTitulo)
+        setPrimerTitulo(d !== null ? d : PrimerTitulo);
 
-  const Editar = () => {
-    setband(false)
+        break;
+
+      case 2:
+        d = prompt('Edit title:', SegundoTitulo)
+        setSegundoTitulo(d !== null ? d : SegundoTitulo);
+
+        break;
+
+      case 3:
+        d = prompt('Edit title:', TerceroTitulo)
+        setTerceroTitulo(d !== null ? d : TerceroTitulo);
+
+        break;
+      case 4:
+        d = prompt('Edit Description:', PrimerDescripcion)
+        setPrimerDescripcion(d !== null ? d : PrimerDescripcion);
+
+        break;
+      case 5:
+        d = prompt('Edit Description:', SegundoDescripcion)
+        setSegundoDescripcion(d !== null ? d : SegundoDescripcion);
+
+        break;
+      case 6:
+        d = prompt('Edit  Description:', TerceroDescripcion)
+        setTerceroDescripcion(d !== null ? d : TerceroDescripcion);
+
+        break;
+
+      default:
+
+    }
+
   }
-  const Eliminar = () => {
-    setPrimerTitulo("")
-    setSegundoTitulo("")
-    setTerceroTitulo("")
-    setPrimerDescripcion("")
-    setSegundoDescripcion("")
-    setTerceroDescripcion("")
+  const Eliminar = (dato) => {
+
+    switch (dato) {
+      case 1:
+
+        setPrimerTitulo("");
+
+        break;
+
+      case 2:
+
+        setSegundoTitulo("")
+
+        break;
+
+      case 3:
+
+        setTerceroTitulo("")
+
+        break;
+      case 4:
+
+        setPrimerDescripcion("")
+
+        break;
+
+      case 5:
+
+        setSegundoDescripcion("")
+
+        break;
+
+      case 6:
+
+        setTerceroDescripcion("")
+
+        break;
+
+      default:
+
+    }
   }
-  const pr = () => {
+  useEffect(() => {
     setstoredData(localStorage.getItem('D'));
-  }
-  
+  }, [])
+
 
   return (
     <>
 
 
-      <div className="relative text-center mb-4 font-roboto"  onClick={pr}>
-        {storedData=="email" && openmodal == false ?
-        
-          <div className='absolute inset-0 flex items-center justify-center z-50' onClick={() => {setOpenmodal(true), setband(true) }}>
-            <div className="flex flex-col justify-center mt-12 overflow-hidden" onClick={STOP}>
-              <div className="relative py-3">
-                <div className="relative px-4 py-8 bg-white mx-8 md:mx-0 shadow rounded-3xl border border-black p-4 sm:p-8">
-                  <div className="max-w-md mx-auto">
-                    <div className="flex items-center justify-center space-x-5 mb-4"> {/* Añadido espacio vertical (margin-bottom) */}
-                      <div className="block pl-2 font-semibold text-xl self-start text-gray-700">
-                        <h2 className="leading-relaxed">To Do Detail</h2>
-                        <p className="text-sm text-gray-500 font-normal leading-relaxed">Task Detail</p>
-                      </div>
-                    </div>
-                    <div className="divide-y divide-gray-200">
-                      <div className="py-6 flex flex-col text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                        <div className="flex mb-4"> {/* Added vertical space (margin-bottom) */}
-                          <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                            <label className="leading-loose">1 Title </label>
-                            <input
-                              type="text"
-                              value={PrimerTitulo}
-                              onChange={(e) => setPrimerTitulo(e.target.value)}
-                              className="mt-1 p-2 w-full border rounded-md"
-                              disabled={band}
-                            />
-                          </div>
-                          <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                            <label className="leading-loose">2 Title </label>
-                            <input
-                              type="text"
-                              value={SegundoTitulo}
-                              onChange={(e) => setSegundoTitulo(e.target.value)}
-                              className="mt-1 p-2 w-full border rounded-md"
-                              disabled={band}
-                            />
-                          </div>
-                          <div className="flex-1 flex flex-col">
-                            <label className="leading-loose">3 Title</label>
-                            <input
-                              type="text"
-                              value={TerceroTitulo}
-                              onChange={(e) => setTerceroTitulo(e.target.value)}
-                              className="mt-1 p-2 w-full border rounded-md"
-                              disabled={band}
-                            />
-                          </div>
-                        </div>
+      <div className="relative text-center mb-4 font-roboto">
 
-                        <div className="flex mb-4"> {/* Added vertical space (margin-bottom) */}
-                          <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                            <label className="leading-loose">1 Description</label>
-                            <input
-                              type="text"
-                              value={PrimerDescripcion}
-                              onChange={(e) => setPrimerDescripcion(e.target.value)}
-                              className="mt-1 p-2 w-full border rounded-md"
-                              disabled={band}
-                            />
-                          </div>
-                          <div className="flex-1 flex flex-col mr-4"> {/* Added horizontal space (margin-right) */}
-                            <label className="leading-loose">2 Description</label>
-                            <input
-                              type="text"
-                              value={SegundoDescripcion}
-                              onChange={(e) => setSegundoDescripcion(e.target.value)}
-                              className="mt-1 p-2 w-full border rounded-md"
-                              disabled={band}
-                            />
-                          </div>
-                          <div className="flex-1 flex flex-col">
-                            <label className="leading-loose">3 Description</label>
-                            <input
-                              type="text"
-                              value={TerceroDescripcion}
-                              onChange={(e) => setTerceroDescripcion(e.target.value)}
-                              className="mt-1 p-2 w-full border rounded-md"
-                              disabled={band}
-                            />
-                          </div>
-                        </div>
-
-                        {/* Add buttons in the center */}
-                        <div className="flex justify-center mt-4">
-                          <button className="bg-yellow-500 text-white px-4 py-2 rounded-md mr-2"
-                            onClick={Editar}>
-                            <FaEdit></FaEdit>
-                          </button>
-                          <button className="bg-red-500 text-white px-4 py-2 rounded-md"
-                            onClick={Eliminar}>
-                            <MdDelete></MdDelete>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> : ""}
 
         <p className="text-1xl pt-20 font-roboto font-bold">At your fingertip</p>
         <p className="text-4xl pt-4 font-roboto">Features</p>
@@ -147,8 +115,22 @@ function Feature() {
           Slate is designed for freelancers</p>
         <p className="text-3xl pt-2 font-roboto"></p>
 
-        <div className="flex flex-col pt-16  mt-4 sm:flex-row sm:justify-center" onClick={() => setOpenmodal(false)}>
+        <div className="flex flex-col pt-16  mt-4 sm:flex-row sm:justify-center" >
           <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mx-16">
+            {storedData ?
+              <div className="flex flex-row">
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                    <FaEdit size={14} onClick={(e) => Editar(1)} className="text-yellow-400" />
+                  </button>
+                </div>
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                    <MdDelete size={14} onClick={(e) => Eliminar(1)} className="text-red-500" />
+                  </button>
+                </div>
+              </div>
+              : null}
             <div className="flex items-center  flex-wrap">
               <img
                 src={Vector2}
@@ -160,8 +142,38 @@ function Feature() {
             <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
               {PrimerDescripcion}
             </p>
+            {storedData ?
+              <div className="flex flex-row">
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                    <FaEdit size={14} onClick={(e) => Editar(4)} className="text-yellow-400" />
+                  </button>
+                </div>
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                    <MdDelete size={14} onClick={(e) => Eliminar(4)} className="text-red-500" />
+                  </button>
+                </div>
+              </div>
+              : null}
+
+
           </div>
           <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mr-16">
+            {storedData ?
+              <div className="flex flex-row">
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                    <FaEdit size={14} onClick={(e) => Editar(2)} className="text-yellow-400" />
+                  </button>
+                </div>
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                    <MdDelete size={14} onClick={(e) => Eliminar(2)} className="text-red-500" />
+                  </button>
+                </div>
+              </div>
+              : null}
             <div className="flex items-center flex-wrap">
               <img
                 src={Vector1}
@@ -174,8 +186,36 @@ function Feature() {
             <p className="text-sm mt-2 font-roboto text-center ml-[3rem] w-[14rem]">
               {SegundoDescripcion}
             </p>
+            {storedData ?
+              <div className="flex flex-row">
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                    <FaEdit size={14} onClick={(e) => Editar(5)} className="text-yellow-400" />
+                  </button>
+                </div>
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                    <MdDelete size={14} onClick={(e) => Eliminar(5)} className="text-red-500" />
+                  </button>
+                </div>
+              </div>
+              : null}
           </div>
           <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mx-16">
+            {storedData ?
+              <div className="flex flex-row">
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                    <FaEdit size={14} onClick={(e) => Editar(3)} className="text-yellow-400" />
+                  </button>
+                </div>
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                    <MdDelete size={14} onClick={(e) => Eliminar(3)} className="text-red-500" />
+                  </button>
+                </div>
+              </div>
+              : null}
             <div className="flex items-center  flex-wrap">
               <img
                 src={Vector3}
@@ -188,6 +228,20 @@ function Feature() {
 
               {TerceroDescripcion}
             </p>
+            {storedData ?
+              <div className="flex flex-row">
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                    <FaEdit size={14} onClick={(e) => Editar(6)} className="text-yellow-400" />
+                  </button>
+                </div>
+                <div className="px-3 py-2 text-right text-xs leading-4">
+                  <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                    <MdDelete size={14} onClick={(e) => Eliminar(6)} className="text-red-500" />
+                  </button>
+                </div>
+              </div>
+              : null}
           </div>
         </div>
       </div>
