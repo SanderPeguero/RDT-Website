@@ -167,32 +167,31 @@ function Contact() {
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
-                        <div className="flex flex-row pt-10  mt-4 sm:flex-row sm:justify-center">
+                        <div className="flex flex-row pt-10 mt-4 sm:flex-row sm:justify-center">
                             <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mr-4">
                                 <div className="flex items-center flex-wrap">
                                     <img
                                         src={Imagen1}
                                         alt="Imagen 1"
-                                        className=" h-10 w-10 mb-3 sm:mb-0"
+                                        className="h-10 mb-3 sm:mb-0"
                                     />
                                 </div>
-
                             </div>
                             <div className="flex flex-col items-center mb-4 sm:mb-0 sm:mx-4">
-                                <div className="flex items-center  flex-wrap">
+                                <div className="flex items-center flex-wrap">
                                     <img
                                         src={Imagen2}
                                         alt="Imagen 2"
-                                        className=" h-10 w-10 mb-3 sm:mb-0"
+                                        className="h-10 mb-3 sm:mb-0"
                                     />
                                 </div>
                             </div>
-                            <div className="flex flex-col items-center">
-                                <div className="flex items-center  flex-wrap">
+                            <div className="flex flex-col items-center mb-4 sm:mb-0 sm:ml-4">
+                                <div className="flex items-center flex-wrap">
                                     <img
                                         src={Imagen3}
                                         alt="Imagen 3"
-                                        className=" h-10 w-10 mb-3 sm:mb-0"
+                                        className="h-10 mb-3 sm:mb-0"
                                     />
                                 </div>
                             </div>
