@@ -29,10 +29,8 @@ const LogIn = () => {
             } else {
                
                 history('/Admin');
-                // if(email=="admin" && password=="admin")
-                // {
-                //     localStorage.setItem('D', "email");
-                // }
+                localStorage.setItem('D', "email");
+               
 
             }
         }
