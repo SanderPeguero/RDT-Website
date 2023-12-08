@@ -151,7 +151,9 @@ function Footer() {
 
                 <div className="mt-10 p-6 md:p-12">
                     <div className="w-full md:w-[550px] rounded-md overflow-hidden">
-                        {authAdmin === null ? "" :
+                    {authAdmin === null ? <LoadScript googleMapsApiKey="AIzaSyCQuMGa2ltQrJMrqUYJUaS48CYZcgfPNO8">
+                            <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter} />
+                        </LoadScript> :
                             <>
 
                                 {selectedLocation ? (
@@ -183,9 +185,6 @@ function Footer() {
                                 </div>
                             </>
                         }
-                        <LoadScript googleMapsApiKey="AIzaSyCQuMGa2ltQrJMrqUYJUaS48CYZcgfPNO8">
-                            <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter} />
-                        </LoadScript>
                     </div>
                 </div>
 
