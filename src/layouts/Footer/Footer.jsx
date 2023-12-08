@@ -49,6 +49,8 @@ function Footer() {
         },
     ])
 
+    const authAdmin = localStorage.getItem('D')
+
     const handleEditPhone = () => {
         const newPhone = prompt('Edit phone:', text.phone);
         if (newPhone !== null) {
@@ -133,9 +135,10 @@ function Footer() {
                         <div key={page.id} className="flex flex-row items-center  justify-between">
                             <p className="mb-4 text-black">{page.page}</p>
                             <div className="px-3 py-2 text-right  text-xs leading-4">
-                                <button onClick={() => handleEditPage(page.id)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                    <FaEdit size={14} className="text-yellow-400" />
-                                </button>
+                                {authAdmin === null ? "" :
+                                    <button onClick={() => handleEditPage(page.id)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                        <FaEdit size={14} className="text-yellow-400" />
+                                    </button>}
                             </div>
                         </div>
                     ))}
@@ -148,31 +151,41 @@ function Footer() {
 
                 <div className="mt-10 p-6 md:p-12">
                     <div className="w-full md:w-[550px] rounded-md overflow-hidden">
-                        {selectedLocation ? (
-                            <div className="px-3 py-2 text-left text-xs leading-4">
-                                <button onClick={handleSaveLocation} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                    <FaEdit size={14} className="text-yellow-400" />
-                                </button>
-                            </div>
-                        ) : (
-                            <span className="text-black mb-[4rem]">Select a location</span>
-                        )}
-                        <LoadScript googleMapsApiKey="AIzaSyCQuMGa2ltQrJMrqUYJUaS48CYZcgfPNO8">
-                            <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={{ lat: 40.712776, lng: -74.005974 }} onClick={handleMapClick}>
-                                {selectedLocation && (
-                                    <Marker position={{ lat: selectedLocation.lat, lng: selectedLocation.lng }} />
-                                )}
-                            </GoogleMap>
-                        </LoadScript>
-                        <div>
+                        {authAdmin === null ? "" :
+                            <>
 
-                            {savedLocation && (
-                                <p>Ubicación guardada: Latitud: {savedLocation.lat}, Longitud: {savedLocation.lng}</p>
-                            )}
-                        </div>
-                        {/* <LoadScript googleMapsApiKey="AIzaSyCQuMGa2ltQrJMrqUYJUaS48CYZcgfPNO8">
+                                {selectedLocation ? (
+                                    <div className="px-3 py-2 text-left text-xs leading-4">
+                                        {authAdmin === null ? "" :
+                                            <button onClick={handleSaveLocation} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>}
+                                    </div>
+                                ) : (
+                                    <>
+                                        {authAdmin === null ? "" :
+                                            <span className="text-black mb-[4rem]">Select a location</span>}
+                                    </>
+
+                                )}
+                                <LoadScript googleMapsApiKey="AIzaSyCQuMGa2ltQrJMrqUYJUaS48CYZcgfPNO8">
+                                    <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={{ lat: 40.712776, lng: -74.005974 }} onClick={handleMapClick}>
+                                        {selectedLocation && (
+                                            <Marker position={{ lat: selectedLocation.lat, lng: selectedLocation.lng }} />
+                                        )}
+                                    </GoogleMap>
+                                </LoadScript>
+                                <div>
+
+                                    {savedLocation && (
+                                        <p>Ubicación guardada: Latitud: {savedLocation.lat}, Longitud: {savedLocation.lng}</p>
+                                    )}
+                                </div>
+                            </>
+                        }
+                        <LoadScript googleMapsApiKey="AIzaSyCQuMGa2ltQrJMrqUYJUaS48CYZcgfPNO8">
                             <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter} />
-                        </LoadScript> */}
+                        </LoadScript>
                     </div>
                 </div>
 
@@ -195,12 +208,13 @@ function Footer() {
                                         ))}
                                     </p>
 
-
-                                    <div className="px-3 py-2 text-right  text-xs leading-4">
-                                        <button onClick={handleEditAddress} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                            <FaEdit size={14} className="text-yellow-400" />
-                                        </button>
-                                    </div>
+                                    {authAdmin === null ? "" :
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={handleEditAddress} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
                                 {/* <p className="text-base md:text-lg ml-2 text-black font-roboto font-bold">
                                     6386 Spring St undefined Anchorage,
@@ -223,11 +237,13 @@ function Footer() {
                                         {text.phone}
 
                                     </p>
-                                    <div className="px-3 py-2 text-right  text-xs leading-4">
-                                        <button onClick={handleEditPhone} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                            <FaEdit size={14} className="text-yellow-400" />
-                                        </button>
-                                    </div>
+                                    {authAdmin === null ? "" :
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={handleEditPhone} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
                                 {/* <p className="text-base md:text-lg text-black ml-2 font-roboto font-bold">
                                     (843) 555-0130
@@ -247,11 +263,13 @@ function Footer() {
                                     <p className="text-base md:text-lg ml-2 text-black font-roboto font-bold">
                                         {text.email}
                                     </p>
-                                    <div className="px-3 py-2 text-right  text-xs leading-4">
-                                        <button onClick={handleEditEmail} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                            <FaEdit size={14} className="text-yellow-400" />
-                                        </button>
-                                    </div>
+                                    {authAdmin === null ? "" :
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={handleEditEmail} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
                                 {/* <p className="text-base md:text-lg ml-2 text-black font-roboto font-bold">
                                     willie.jennings@example.com
