@@ -20,7 +20,7 @@ function Home() {
     return (
         <>
             <Navbar />
-            <br /><Hero1 />
+            <Hero1 />
             <br /><Feature />
             <br /><Hero2 />
             <br /><CTA />
