@@ -17,6 +17,8 @@ function Contact() {
         address: ' 6386 Spring St undefined Anchorage,Georgia 12473 United StatesFastest'
     });
 
+    const authAdmin = localStorage.getItem('D')
+
     const handleEditPhone = () => {
         const newPhone = prompt('Edit phone:', text.phone);
         if (newPhone !== null) {
@@ -105,11 +107,13 @@ function Contact() {
                                         ))}
                                     </p>
 
-                                    <div className="px-3 py-2 text-right  text-xs leading-4">
-                                        <button onClick={handleEditAddress} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                            <FaEdit size={14} className="text-yellow-400" />
-                                        </button>
-                                    </div>
+                                    {authAdmin === null ? "" :
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={handleEditAddress} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
 
                             </div>
@@ -127,11 +131,13 @@ function Contact() {
                                         {text.phone}
 
                                     </p>
-                                    <div className="px-3 py-2 text-right  text-xs leading-4">
-                                        <button onClick={handleEditPhone} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                            <FaEdit size={14} className="text-yellow-400" />
-                                        </button>
-                                    </div>
+                                    {authAdmin === null ? "" :
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={handleEditPhone} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
 
                             </div>
@@ -148,11 +154,13 @@ function Contact() {
                                     <p className="text-base md:text-lg ml-2 font-roboto font-bold">
                                         {text.email}
                                     </p>
-                                    <div className="px-3 py-2 text-right  text-xs leading-4">
-                                        <button onClick={handleEditEmail} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                            <FaEdit size={14} className="text-yellow-400" />
-                                        </button>
-                                    </div>
+                                    {authAdmin === null ? "" :
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={handleEditEmail} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
 
                             </div>
