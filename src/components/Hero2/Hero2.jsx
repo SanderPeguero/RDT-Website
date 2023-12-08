@@ -4,22 +4,24 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 //RW-3
 function Hero2() {
-    const [image, setImage] = useState(container);
+    const [imageHero2, setimageHero2] = useState(container);
     const [text, setText] = useState({
         title: 'Lightning fast prototyping',
         description: 'Most calendars are designed for teams. Slate is designed for freelancers',
     });
-    const handleEditImg = (e) => {
-        const selectedImage = e.target.files[0];
+    const authAdmin = localStorage.getItem('D')
 
-        if (selectedImage) {
-            const imageUrl = URL.createObjectURL(selectedImage);
-            setImage(imageUrl)
+    const handleEditImgHero2 = (e) => {
+        const selectedimageHero2 = e.target.files[0];
+        if (selectedimageHero2) {
+            const imageHero2Url = URL.createObjectURL(selectedimageHero2);
+            setimageHero2(imageHero2Url)
+            console.log("Hero 2 Here")
         }
     }
 
-    const handleDeleteImg = () => {
-        setImage(null)
+    const handleDeleteImgHero2 = () => {
+        setimageHero2(null)
     };
 
     const handleEditTitle = () => {
@@ -49,18 +51,20 @@ function Hero2() {
             <div className="flex items-center p-2 gap-4">
                 <h2 className="font-roboto font-normal text-4xl leading-10 tracking-tighter text-center text-black w-80 ">
                     {text.title}
-                    <div className="flex flex-row items-center justify-center my-2">
-                        <div className="px-3 py-2 text-right  text-xs leading-4">
-                            <button onClick={handleEditTitle} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                <FaEdit size={14} className="text-yellow-400" />
-                            </button>
+                    {authAdmin === null ? "" :
+                        <div className="flex flex-row items-center justify-center my-2">
+                            <div className="px-3 py-2 text-right  text-xs leading-4">
+                                <button onClick={handleEditTitle} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                    <FaEdit size={14} className="text-yellow-400" />
+                                </button>
+                            </div>
+                            <div className="px-3 py-2  text-right  text-xs leading-4">
+                                <button onClick={handleDeletedTitle} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                    <MdDelete size={14} className="text-red-500" />
+                                </button>
+                            </div>
                         </div>
-                        <div className="px-3 py-2  text-right  text-xs leading-4">
-                            <button onClick={handleDeletedTitle} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                                <MdDelete size={14} className="text-red-500" />
-                            </button>
-                        </div>
-                    </div>
+                    }
                 </h2>
             </div>
             <div>
@@ -71,42 +75,46 @@ function Hero2() {
                             <br />
                         </span>
                     ))}
-                    <div className="flex flex-row items-center justify-center my-2">
-                        <div className="px-3 py-2 text-right  text-xs leading-4">
-                            <button onClick={handleEditDescription} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                <FaEdit size={14} className="text-yellow-400" />
-                            </button>
+                    {authAdmin === null ? "" :
+                        <div className="flex flex-row items-center justify-center my-2">
+                            <div className="px-3 py-2 text-right  text-xs leading-4">
+                                <button onClick={handleEditDescription} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                    <FaEdit size={14} className="text-yellow-400" />
+                                </button>
+                            </div>
+                            <div className="px-3 py-2  text-right  text-xs leading-4">
+                                <button onClick={handleDeletedDescription} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                    <MdDelete size={14} className="text-red-500" />
+                                </button>
+                            </div>
                         </div>
-                        <div className="px-3 py-2  text-right  text-xs leading-4">
-                            <button onClick={handleDeletedDescription} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                                <MdDelete size={14} className="text-red-500" />
-                            </button>
-                        </div>
-                    </div>
+                    }
                 </h4>
-            </div> 
+            </div>
             <div className="w-72 h-28 p-2 gap-4 mt-8 md:mt-16 flex items-center justify-center">
                 <button className="w-60 h-16 p-4 rounded-full bg-[#38A3F1] hover:bg-blue-500 text-white font-roboto font-semibold text-base leading-8 tracking-tighter text-center">
                     Try For Free
                 </button>
             </div>
             <div className="mt-8 md:mt-4 w-120 md:w-150">
-                <div className="flex flex-row ml-[10rem]">
-                    <label htmlFor="file-upload" className="px-3 py-2 text-right  text-xs leading-4">
-                        <div className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                            <input id="file-upload" type="file" onChange={handleEditImg} className="hidden" />
-                            <FaEdit size={14} className="text-yellow-400" />
+                {authAdmin === null ? "" :
+                    <div className="flex flex-row ml-[10rem]">
+                        <label htmlFor="file-upload-Hero2" className="px-3 py-2 text-right text-xs leading-4">
+                            <div className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                <FaEdit size={14} className="text-yellow-400" />
+                                <input id="file-upload-Hero2" type="file" onChange={handleEditImgHero2} style={{ display: 'none' }} />
+                            </div>
+                        </label>
+
+
+                        <div className="px-3 py-2  text-right  text-xs leading-4">
+                            <button onClick={handleDeleteImgHero2} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                <MdDelete size={14} className="text-red-500" />
+                            </button>
                         </div>
-
-                    </label>
-
-                    <div className="px-3 py-2  text-right  text-xs leading-4">
-                        <button onClick={handleDeleteImg} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                            <MdDelete size={14} className="text-red-500" />
-                        </button>
                     </div>
-                </div>
-                <img className="mb-[4rem]" src={image} />
+                }
+                <img className="mb-[4rem]" src={imageHero2} />
             </div>
         </div>
     )
