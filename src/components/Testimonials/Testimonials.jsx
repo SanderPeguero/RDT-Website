@@ -8,6 +8,7 @@ function Testimonials() {
     const [PrimerTitulo, setPrimerTitulo] = useState("Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.")
     const [SegundoTitulo, setSegundoTitulo] = useState("Organize across")
     const [TerceroTitulo, setTerceroTitulo] = useState(" Ui designer")
+    const [PrimerImagen, setPrimerImagen] = useState(avatar)
 
     const Editar = (dato) => {
         let d
@@ -27,6 +28,11 @@ function Testimonials() {
             case 3:
                 d = prompt('Edit title:', TerceroTitulo)
                 setTerceroTitulo(d !== null ? d : TerceroTitulo);
+
+                break;
+            case 4:
+                d = prompt('Edit Image:', PrimerImagen)
+                setPrimerImagen(d !== null ? d : PrimerImagen);
 
                 break;
 
@@ -51,6 +57,11 @@ function Testimonials() {
             case 3:
 
                 setTerceroTitulo("")
+
+                break;
+            case 4:
+
+                setPrimerImagen("")
 
                 break;
 
@@ -96,10 +107,29 @@ function Testimonials() {
                 </h4>
 
                 <div className="flex flex-row ">
-                    <img
-                        src={avatar}
-                        className="mr-4"
-                    />
+                    {storedData ?
+                        <>
+                            <div className="px-3 py-2 text-right text-xs leading-4">
+                                <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                    <FaEdit size={14} onClick={(e) => Editar(4)} className="text-yellow-400" />
+                                </button>
+                            </div>
+                            <div className="px-3 py-2 text-right text-xs leading-4">
+                                <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                    <MdDelete size={14} onClick={(e) => Eliminar(4)} className="text-red-500" />
+                                </button>
+                            </div></> : null}
+
+                    {storedData ?
+                        <div className=" mt-10">
+                            <img
+                                src={PrimerImagen}
+                                className="mr-4"
+                            />
+                        </div> : <img
+                            src={avatar}
+                            className="mr-4"
+                        />}
                     <div className="flex flex-col">
                         {storedData ?
                             <div className="flex flex-row">
