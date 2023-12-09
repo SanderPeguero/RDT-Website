@@ -107,17 +107,18 @@ function Testimonials() {
                 </h4>
 
                 <div className="flex flex-row ">
-
-                    <div className="px-3 py-2 text-right text-xs leading-4">
-                        <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                            <FaEdit size={14} onClick={(e) => Editar(4)} className="text-yellow-400" />
-                        </button>
-                    </div>
-                    <div className="px-3 py-2 text-right text-xs leading-4">
-                        <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                            <MdDelete size={14} onClick={(e) => Eliminar(4)} className="text-red-500" />
-                        </button>
-                    </div>
+                    {storedData ?
+                        <>
+                            <div className="px-3 py-2 text-right text-xs leading-4">
+                                <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                    <FaEdit size={14} onClick={(e) => Editar(4)} className="text-yellow-400" />
+                                </button>
+                            </div>
+                            <div className="px-3 py-2 text-right text-xs leading-4">
+                                <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+                                    <MdDelete size={14} onClick={(e) => Eliminar(4)} className="text-red-500" />
+                                </button>
+                            </div></> : null}
 
                     {storedData ?
                         <div className=" mt-10">
