@@ -3,7 +3,9 @@ import TicketSystem from "./Ticket System Mockup.png";
 import background2 from "./background.jpg";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useContextRDT } from "../../Context";
 function Hero1() {
+    const {SaveHero1, InforHero1, EditarHero1Title, EditarHero1Description} = useContextRDT()
     const [image, setImage] = useState(TicketSystem);
     const [text, setText] = useState({
         title: 'We focus on ergonomics',
@@ -14,11 +16,7 @@ function Hero1() {
 
     const handleEditImg = (e) => {
         const selectedImage = e.target.files[0];
-
-        if (selectedImage) {
-            const imageUrl = URL.createObjectURL(selectedImage);
-            setImage(imageUrl)
-        }
+        console.log(selectedImage)
     }
 
     const handleDeleteImg = () => {
@@ -26,9 +24,11 @@ function Hero1() {
     };
 
     const handleEditTitle = () => {
-        const newTitle = prompt('Edit title:', text.title);
+        const newTitle = prompt('Edit title:', InforHero1.title);
         if (newTitle !== null) {
             setText(prevText => ({ ...prevText, title: newTitle }));
+            // SaveHero1(text.title, text.description)
+            EditarHero1Title(newTitle)
         }
     }
 
@@ -37,15 +37,22 @@ function Hero1() {
     }
 
     const handleEditDescription = () => {
-        const newDescription = prompt('Edit title:', text.description);
+        const newDescription = prompt('Edit title:', InforHero1.description);
         if (newDescription !== null) {
             setText(prevText => ({ ...prevText, description: newDescription }));
+            EditarHero1Description(newDescription)
         }
     }
 
     const handleDeletedDescription = () => {
         setText(prevText => ({ ...prevText, description: '' }));
     }
+
+    useEffect(() => {
+      console.log("Datos hero 1")
+      console.log(InforHero1)
+    }, [])
+    
 
     return (
         <div className="relative">
@@ -85,7 +92,7 @@ function Hero1() {
                     <div className="flex flex-col mt-[4rem] my-[4rem]">
                         <div className="my-8 w-[321px] h-auto mt-auto">
                             <h1 className=" font-roboto font-extrabold text-4xl leading-66 tracking-[0.2px] text-white  break-before-auto">
-                                {text.title}
+                                {InforHero1.title}
                                 {authAdmin === null ? "" :
                                     <div className="flex flex-row my-2">
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
@@ -104,7 +111,7 @@ function Hero1() {
                         </div>
                         <div className="w-[298px] max-h-full">
                             <h4 className="font-roboto font-bold text-base leading-20 tracking-[0.2px] text-white   break-before-auto">
-                                {text.description}
+                                {InforHero1.description}
                                 {authAdmin === null ? "" :
                                     <div className="flex flex-row">
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
