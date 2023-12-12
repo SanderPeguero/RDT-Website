@@ -30,6 +30,7 @@ export function ProviderContext({ children }) {
             set(ref(db, 'Hero1/'), {
                 Title: title,
                 Descripcion: descripcion,
+                Image: ""
             })
 
             console.log("Save Data")
