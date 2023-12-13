@@ -3,36 +3,74 @@ import block2 from "./block2.png"
 import React, { useState, useEffect } from 'react';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useContextRDT } from "../../Context";
 function Pricing() {
+    const {SavePricing,GetAllPricing} = useContextRDT()
     const [storedData, setstoredData] = useState("")
-    const [PrimerTitulo, setPrimerTitulo] = useState("0")
-    const [SegundoTitulo, setSegundoTitulo] = useState("10")
-    const [TerceroTitulo, setTerceroTitulo] = useState("99")
+    // const [PrimerTitulo, setPrimerTitulo] = useState("0")
+    // const [SegundoTitulo, setSegundoTitulo] = useState("10")
+    // const [TerceroTitulo, setTerceroTitulo] = useState("99")
 
+    const [PrimerTitulo, setPrimerTitulo] = useState(" ");
+    const [SegundoTitulo, setSegundoTitulo] = useState(" ");
+    const [TerceroTitulo, setTerceroTitulo] = useState(" ");
 
-    const STOP = (e) => {
-        e.stopPropagation();
-    }
+    // useEffect(() => {
+    //    SavePricing(1, PrimerTitulo)
+    //    SavePricing(2, SegundoTitulo)
+    //    SavePricing(3, TerceroTitulo)
+    // }, [])
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const partnersData = await GetAllPricing();
+                console.log("Hola", partnersData)
+                if (partnersData) {
+                    // Asigna los valores correspondientes a cada estado
+                    setPrimerTitulo(partnersData[1]?.Title || "");
+                    setSegundoTitulo(partnersData[2]?.Title || "");
+                    setTerceroTitulo(partnersData[3]?.Title || "");
+
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const Editar = (dato) => {
         let d
         switch (dato) {
             case 1:
+
                 d = prompt('Edit title:', PrimerTitulo)
                 setPrimerTitulo(d !== null ? d : PrimerTitulo);
+                if (d !== null) {
+                    SavePricing(dato, d)
+                }
 
                 break;
 
             case 2:
+
                 d = prompt('Edit title:', SegundoTitulo)
                 setSegundoTitulo(d !== null ? d : SegundoTitulo);
+                if (d !== null) {
+                    SavePricing(dato, d)
+                }
+
 
                 break;
 
             case 3:
+
                 d = prompt('Edit title:', TerceroTitulo)
                 setTerceroTitulo(d !== null ? d : TerceroTitulo);
-
+                if (d !== null) {
+                    SavePricing(dato, d)
+                }
                 break;
 
             default:
@@ -42,21 +80,18 @@ function Pricing() {
     const Eliminar = (dato) => {
         switch (dato) {
             case 1:
-
                 setPrimerTitulo("");
-
+               SavePricing(dato, "");
                 break;
 
             case 2:
-
-                setSegundoTitulo("")
-
+                setSegundoTitulo("");
+               SavePricing(dato, "");
                 break;
 
             case 3:
-
-                setTerceroTitulo("")
-
+                setTerceroTitulo("");
+               SavePricing(dato, "");
                 break;
 
             default:
