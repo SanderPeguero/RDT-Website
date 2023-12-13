@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { db } from "./firebase/firebase"
 import { set, ref, onValue, get, update } from "firebase/database"
-
+import { auth } from "./firebase/firebase"
+import { signInWithEmailAndPassword,createUserWithEmailAndPassword, signOut } from "firebase/auth"
 const Context = createContext()
 
 export const useContextRDT = () => {
@@ -11,6 +12,7 @@ export const useContextRDT = () => {
 }
 
 export function ProviderContext({ children }) {
+    const [authToken, setauthToken] = useState()
     const [InforHero1, setInforHero1] = useState({
         title: '',
         description: '',
@@ -69,7 +71,23 @@ export function ProviderContext({ children }) {
     }
 
   
-    
+    const login = async (email, password) => {
+        console.log("Backend");
+      
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          localStorage.setItem('D', "email");
+        //   console.log("Inicio de sesión exitoso:", user);
+      
+          return true; 
+        } catch (error) {
+          console.error("Error al iniciar sesión:", error.message);
+          return false; 
+        }
+      };
+      
+      
 
 
 
@@ -96,7 +114,7 @@ console.log(InforHero1)
 
     return (
         <Context.Provider
-            value={{ SaveHero1, InforHero1, EditarHero1Title, EditarHero1Description }}
+            value={{ SaveHero1, InforHero1, EditarHero1Title, EditarHero1Description,login }}
         >
             {children}
         </Context.Provider>

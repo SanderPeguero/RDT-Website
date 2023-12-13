@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useContextRDT } from "../../Context";
 // import { toast } from "react-toastify"
 const LogIn = () => {
-
+    const {login} = useContextRDT()
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const history = useNavigate();
@@ -27,9 +28,10 @@ const LogIn = () => {
 
                 return
             } else {
-               
+                 if( await login(email,password)){
                 history('/Admin');
-                localStorage.setItem('D', "email");
+                 }
+                
                
 
             }
