@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { db, storage } from "./firebase/firebase"
-import { set, ref, onValue, get, update } from "firebase/database"
+import { set, ref, onValue, get, update, push } from "firebase/database"
 import { ref as refImg, uploadBytes, getDownloadURL } from 'firebase/storage'
+
 
 
 const Context = createContext()
@@ -19,6 +20,7 @@ export function ProviderContext({ children }) {
         image: null
     });
     const [imgUrl, setImgUrl] = useState(null)
+    const [features, setFeatures] = useState([]);
 
     //Funcion para guardar los datos, No actualizar
     const SaveHero1 = async (title, descripcion) => {
@@ -121,9 +123,9 @@ export function ProviderContext({ children }) {
             const imageUrl = data?.Image;
 
             if (imageUrl) {
-              
+
                 await update(heroRef, {
-                    Image: null 
+                    Image: null
                 });
 
             } else {
@@ -133,6 +135,130 @@ export function ProviderContext({ children }) {
             console.error('Error al eliminar la referencia de la imagen:', error);
             throw error;
         }
+    }
+
+    const SaveFeature = async (title, descripcion) => {
+
+        try {
+
+            const featureRef = ref(db, 'Features');
+            const newFeatureRef = push(featureRef); // Generar una nueva referencia con un ID único
+            const id = newFeatureRef.key;
+
+            set(newFeatureRef, {
+                Id: id,
+                Title: title,
+                Descripcion: descripcion,
+            })
+
+            console.log("Save Data")
+
+        } catch (error) {
+
+            console.log("Error save data")
+            console.log(error)
+        }
+    }
+
+    const EditFeatureTitle = async (id, newData) => {
+      
+        try {
+            const featureRef = ref(db, `Features/${id}`);
+
+            await update(featureRef, {
+              Title: newData,
+            });
+        
+            console.log("Campo Title actualizado correctamente");
+        } catch (error) {
+          console.error("Error al actualizar el feature:", error);
+        }
+      }
+
+      const EditFeatureDescription = async (id, newData) => {
+      
+        try {
+            const featureRef = ref(db, `Features/${id}`);
+
+            await update(featureRef, {
+                Descripcion: newData,
+            });
+        
+            console.log("Campo Description actualizado correctamente");
+        } catch (error) {
+          console.error("Error al actualizar el feature:", error);
+        }
+      };
+      const DeleteFeatureTitle = async (id) => {
+        try {
+            const featureRef = ref(db, `Features/${id}`);
+            update(featureRef, {
+                Title: ""
+            })
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const DeleteFeatureDescription = async (id) => {
+        try {
+            const featureRef = ref(db, `Features/${id}`);
+            update(featureRef, {
+                Descripcion: ""
+            })
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const UploadFileFeature = async (id, fileImg) => {
+        try {
+
+            const storageRef = refImg(storage, 'FeatureImg/' + fileImg.name);
+            await uploadBytes(storageRef, fileImg);
+            const url = await getDownloadURL(storageRef)
+
+            const heroRef = ref(db, `Features/${id}`);
+            update(heroRef, {
+                Image: url
+            });
+
+        } catch (error) {
+            console.error('Error al cargar el archivo:', error);
+        }
+    }
+
+    const deleteIconFeature = async (id) => {
+        try {
+            const heroRef = ref(db, `Features/${id}`);
+            const snapshot = await get(heroRef);
+            const data = snapshot.val();
+            const imageUrl = data?.Image;
+
+            if (imageUrl) {
+
+                await update(heroRef, {
+                    Image: null
+                });
+
+            } else {
+                console.log('No se encontró ninguna URL de imagen en la base de datos');
+            }
+        } catch (error) {
+            console.error('Error al eliminar la referencia de la imagen:', error);
+            throw error;
+        }
+    }
+
+    const ShowFeatures = async () => {
+        const featuresRef = ref(db, 'Features');
+        onValue(featuresRef, (snapshot) => {
+            if (snapshot.exists()) {
+                setFeatures(Object.values(snapshot.val()));
+            } else {
+                setFeatures([]);
+            }
+        });
     }
 
 
@@ -156,27 +282,35 @@ export function ProviderContext({ children }) {
     useEffect(() => {
         console.log("Context")
         ShowInfo()
+        ShowFeatures()
     }, [])
 
 
 
     console.log(InforHero1)
+    console.log(features)
 
 
     return (
         <Context.Provider
-            value={{ 
-                SaveHero1, 
-                InforHero1, 
-                EditarHero1Title, 
-                EditarHero1Description, 
-                UploadFile, 
+            value={{
+                SaveHero1,
+                InforHero1,
+                EditarHero1Title,
+                EditarHero1Description,
+                UploadFile,
                 imgUrl,
                 deleteImg,
                 DeleteHero1Title,
-                DeleteHero1Description
-
-            
+                DeleteHero1Description,
+                features,
+                SaveFeature,
+                EditFeatureTitle,
+                EditFeatureDescription,
+                DeleteFeatureTitle,
+                DeleteFeatureDescription,
+                UploadFileFeature,
+                deleteIconFeature
             }}
         >
             {children}
