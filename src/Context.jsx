@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { db, storage } from "./firebase/firebase"
-import { set, ref, onValue, get, update } from "firebase/database"
+import { set, ref, onValue, get, update,getDatabase } from "firebase/database"
 import { ref as refImg, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 
@@ -41,6 +41,67 @@ export function ProviderContext({ children }) {
             console.log(error)
         }
     }
+    const SavePartners = async (id ,title, descripcion,image) => {
+        try {
+              
+           
+            const partnerRef = ref(db, `Partners/${id}`);
+
+            try {
+                const partnerSnapshot = await get(partnerRef);
+
+                  if (partnerSnapshot.exists()) {
+                    // El elemento existe, actualiza sus datos
+                    await update(partnerRef, {
+                        Title: title,
+                        Descripcion: descripcion,
+                        Image: image
+                    });
+            
+                    console.log("Update Data");
+                } else {
+                    // El elemento no existe, créalo
+                    await set(partnerRef, {
+                        id,
+                        Title: title,
+                        Descripcion: descripcion,
+                        Image: image
+                    });
+            
+                    console.log("Save Data");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+            
+
+        } catch (error) {
+
+            console.log("Error save data")
+            console.log(error)
+        }
+    }
+    const GetAllPartners = async () => {
+        const partnersRef = ref(getDatabase(), 'Partners');
+    
+        try {
+            const partnersSnapshot = await get(partnersRef);
+    
+            if (partnersSnapshot.exists()) {
+                // Obtén todos los datos de Partners
+                const partnersData = partnersSnapshot.val();
+                return partnersData;
+            } else {
+                console.log("No data available");
+                return null;
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            return null;
+        }
+    };
+    
+    
 
     const EditarHero1Title = async (newTitle) => {
         try {
@@ -174,8 +235,9 @@ export function ProviderContext({ children }) {
                 imgUrl,
                 deleteImg,
                 DeleteHero1Title,
-                DeleteHero1Description
-
+                DeleteHero1Description,
+                SavePartners,
+                GetAllPartners,
             
             }}
         >
