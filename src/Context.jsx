@@ -104,8 +104,64 @@ export function ProviderContext({ children }) {
             console.log(error)
         }
     }
+
+    const SaveCTA = async (id, title) => {
+        try {
+
+
+            const partnerRef = ref(db, `CTA/${id}`);
+
+            try {
+                const partnerSnapshot = await get(partnerRef);
+
+                if (partnerSnapshot.exists()) {
+                    // El elemento existe, actualiza sus datos
+                    await update(partnerRef, {
+                        Title: title,
+                    });
+
+                    console.log("Update Data");
+                } else {
+                    // El elemento no existe, créalo
+                    await set(partnerRef, {
+                        id,
+                        Title: title,
+                    });
+
+                    console.log("Save Data");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+
+
+        } catch (error) {
+
+            console.log("Error save data")
+            console.log(error)
+        }
+    }
     const GetAllPartners = async () => {
         const partnersRef = ref(getDatabase(), 'Partners');
+
+        try {
+            const partnersSnapshot = await get(partnersRef);
+
+            if (partnersSnapshot.exists()) {
+                // Obtén todos los datos de Partners
+                const partnersData = partnersSnapshot.val();
+                return partnersData;
+            } else {
+                console.log("No data available");
+                return null;
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            return null;
+        }
+    };
+    const GetAllCTA = async () => {
+        const partnersRef = ref(getDatabase(), 'CTA');
 
         try {
             const partnersSnapshot = await get(partnersRef);
@@ -526,6 +582,9 @@ export function ProviderContext({ children }) {
                 deleteImgHero2,
                 SavePartners,
                 GetAllPartners,
+                SaveCTA,
+                GetAllCTA,
+
             }}
         >
             {children}
