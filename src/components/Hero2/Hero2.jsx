@@ -2,8 +2,20 @@ import { useState, useEffect } from "react";
 import container from "./container.png"
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useContextRDT } from "../../Context";
 //RW-3
 function Hero2() {
+    const {
+        SaveHero2,
+        EditarHero2Title,
+        DeleteHero2Title,
+        EditarHero2Description,
+        DeleteHero2Description,
+        InforHero2,
+        UploadFileHero2,
+        deleteImgHero2
+    } = useContextRDT()
+
     const [imageHero2, setimageHero2] = useState(container);
     const [text, setText] = useState({
         title: 'Lightning fast prototyping',
@@ -13,44 +25,40 @@ function Hero2() {
 
     const handleEditImgHero2 = (e) => {
         const selectedimageHero2 = e.target.files[0];
-        if (selectedimageHero2) {
-            const imageHero2Url = URL.createObjectURL(selectedimageHero2);
-            setimageHero2(imageHero2Url)
-            console.log("Hero 2 Here")
-        }
+        UploadFileHero2(selectedimageHero2)
     }
 
     const handleDeleteImgHero2 = () => {
-        setimageHero2(null)
+        deleteImgHero2()
     };
 
     const handleEditTitle = () => {
-        const newTitle = prompt('Edit title:', text.title);
+        const newTitle = prompt('Edit title:', InforHero2.title);
         if (newTitle !== null) {
-            setText(prevText => ({ ...prevText, title: newTitle }));
+            EditarHero2Title(newTitle)
         }
     }
 
     const handleDeletedTitle = () => {
-        setText(prevText => ({ ...prevText, title: '' }));
+        DeleteHero2Title()
     }
 
     const handleEditDescription = () => {
-        const newDescription = prompt('Edit title:', text.description);
+        const newDescription = prompt('Edit title:', InforHero2.description);
         if (newDescription !== null) {
-            setText(prevText => ({ ...prevText, description: newDescription }));
+            EditarHero2Description(newDescription)
         }
     }
 
     const handleDeletedDescription = () => {
-        setText(prevText => ({ ...prevText, description: '' }));
+        DeleteHero2Description()
     }
 
     return (
         <div className="flex flex-col items-center justify-center mt-[6rem]">
             <div className="flex items-center p-2 gap-4">
                 <h2 className="font-roboto font-normal text-4xl leading-10 tracking-tighter text-center text-black w-80 ">
-                    {text.title}
+                    {InforHero2.title}
                     {authAdmin === null ? "" :
                         <div className="flex flex-row items-center justify-center my-2">
                             <div className="px-3 py-2 text-right  text-xs leading-4">
@@ -69,7 +77,7 @@ function Hero2() {
             </div>
             <div>
                 <h4 className="font-roboto font-semibold text-base leading-5 tracking-tighter text-center text-gray-700 mt-4 md:mt-2">
-                    {text.description.split(/(?<=\.)\s*/).map((sentence, index) => (
+                    {InforHero2.description.split(/(?<=\.)\s*/).map((sentence, index) => (
                         <span key={index}>
                             {sentence}
                             <br />
@@ -114,7 +122,7 @@ function Hero2() {
                         </div>
                     </div>
                 }
-                <img className="mb-[4rem]" src={imageHero2} />
+                <img className="mb-[4rem]" src={InforHero2.image} />
             </div>
         </div>
     )
