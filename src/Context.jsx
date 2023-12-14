@@ -580,10 +580,10 @@ export function ProviderContext({ children }) {
                 DeleteHero2Description,
                 UploadFileHero2,
                 deleteImgHero2,
-                SavePartners,
-                GetAllPartners,
                 SaveCTA,
                 GetAllCTA,
+                SavePartners,
+                GetAllPartners,
 
             }}
         >

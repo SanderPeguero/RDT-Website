@@ -4,7 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { useContextRDT } from "../../Context";
 function CTA() {
     const [storedData, setstoredData] = useState("")
-    const { SaveCTA ,GetAllCTA} = useContextRDT()
+    const { SaveCTA, GetAllCTA } = useContextRDT()
     // const [PrimerTitulo, setPrimerTitulo] = useState("At your fingertips")
     // const [SegundoTitulo, setSegundoTitulo] = useState("Lightning fast prototyping")
     // const [TerceroTitulo, setTerceroTitulo] = useState("Subscribe to our Newsletter")
@@ -13,12 +13,12 @@ function CTA() {
     const [SegundoTitulo, setSegundoTitulo] = useState("")
     const [TerceroTitulo, setTerceroTitulo] = useState("")
     const [CuartoTitulo, setCuartoTitulo] = useState("")
-//   useEffect(() => {
-//        SaveCTA(1, PrimerTitulo)
-//        SaveCTA(2, SegundoTitulo)
-//        SaveCTA(3, TerceroTitulo)
-//        SaveCTA(4, CuartoTitulo)
-//     }, [])
+    //   useEffect(() => {
+    //        SaveCTA(1, PrimerTitulo)
+    //        SaveCTA(2, SegundoTitulo)
+    //        SaveCTA(3, TerceroTitulo)
+    //        SaveCTA(4, CuartoTitulo)
+    //     }, [])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +31,7 @@ function CTA() {
                     setSegundoTitulo(partnersData[2]?.Title || "");
                     setTerceroTitulo(partnersData[3]?.Title || "");
                     setCuartoTitulo(partnersData[4]?.Title || "");
-                    
+
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -49,7 +49,7 @@ function CTA() {
                 d = prompt('Edit title:', PrimerTitulo)
                 setPrimerTitulo(d !== null ? d : PrimerTitulo);
                 if (d !== null) {
-                   SaveCTA(dato, d)
+                    SaveCTA(dato, d)
                 }
 
                 break;
@@ -59,7 +59,7 @@ function CTA() {
                 d = prompt('Edit title:', SegundoTitulo)
                 setSegundoTitulo(d !== null ? d : SegundoTitulo);
                 if (d !== null) {
-                   SaveCTA(dato, d)
+                    SaveCTA(dato, d)
                 }
 
 
@@ -70,14 +70,14 @@ function CTA() {
                 d = prompt('Edit title:', TerceroTitulo)
                 setTerceroTitulo(d !== null ? d : TerceroTitulo);
                 if (d !== null) {
-                   SaveCTA(dato, d)
+                    SaveCTA(dato, d)
                 }
                 break;
             case 4:
                 d = prompt('Edit title:', CuartoTitulo)
                 setCuartoTitulo(d !== null ? d : CuartoTitulo);
                 if (d !== null) {
-                   SaveCTA(dato, d)
+                    SaveCTA(dato, d)
                 }
 
                 break;
@@ -93,22 +93,22 @@ function CTA() {
         switch (dato) {
             case 1:
                 setPrimerTitulo("");
-               SaveCTA(dato, "");
+                SaveCTA(dato, "");
                 break;
 
             case 2:
                 setSegundoTitulo("");
-               SaveCTA(dato, "");
+                SaveCTA(dato, "");
                 break;
 
             case 3:
                 setTerceroTitulo("");
-               SaveCTA(dato, "");
+                SaveCTA(dato, "");
                 break;
 
             case 4:
                 setCuartoTitulo("");
-               SaveCTA(dato, "");
+                SaveCTA(dato, "");
                 break;
 
             default:
@@ -137,12 +137,12 @@ function CTA() {
                             <div className="flex flex-row">
                                 <div className="px-3 py-2 text-right text-xs leading-4">
                                     <button onClick={(e) => Editar(1)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14}  className="text-yellow-400" />
+                                        <FaEdit size={14} className="text-yellow-400" />
                                     </button>
                                 </div>
                                 <div className="px-3 py-2 text-right text-xs leading-4">
                                     <button onClick={(e) => Eliminar(1)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                                        <MdDelete size={14}  className="text-red-500" />
+                                        <MdDelete size={14} className="text-red-500" />
                                     </button>
                                 </div>
                             </div>
@@ -159,12 +159,12 @@ function CTA() {
                             <div className="flex flex-row">
                                 <div className="px-3 py-2 text-right  text-xs leading-4">
                                     <button onClick={(e) => Editar(2)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14}  className="text-yellow-400" />
+                                        <FaEdit size={14} className="text-yellow-400" />
                                     </button>
                                 </div>
                                 <div className="px-3 py-2  text-right  text-xs leading-4">
                                     <button onClick={(e) => Eliminar(2)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                                        <MdDelete size={14}  className="text-red-500" />
+                                        <MdDelete size={14} className="text-red-500" />
                                     </button>
                                 </div>
                             </div>
@@ -188,12 +188,12 @@ function CTA() {
                             <div className="flex flex-row">
                                 <div className="px-3 py-2 text-right  text-xs leading-4">
                                     <button onClick={(e) => Editar(3)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14}  className="text-yellow-400" />
+                                        <FaEdit size={14} className="text-yellow-400" />
                                     </button>
                                 </div>
                                 <div className="px-3 py-2  text-right  text-xs leading-4">
                                     <button onClick={(e) => Eliminar(3)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                                        <MdDelete size={14}  className="text-red-500" />
+                                        <MdDelete size={14} className="text-red-500" />
                                     </button>
                                 </div>
                             </div>
@@ -211,13 +211,13 @@ function CTA() {
 
                             <div className="flex flex-row">
                                 <div className="px-3 py-2 text-right  text-xs leading-4">
-                                    <button onClick={(e) => Editar(4)}  className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                    <button onClick={(e) => Editar(4)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                         <FaEdit size={14} className="text-yellow-400" />
                                     </button>
                                 </div>
                                 <div className="px-3 py-2  text-right  text-xs leading-4">
                                     <button onClick={(e) => Eliminar(4)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
-                                        <MdDelete size={14}  className="text-red-500" />
+                                        <MdDelete size={14} className="text-red-500" />
                                     </button>
                                 </div>
                             </div>
