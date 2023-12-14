@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { db, storage } from "./firebase/firebase"
-import { set, ref, onValue, get, update, push } from "firebase/database"
+import { set, ref, onValue, get, update, push, getDatabase } from "firebase/database"
 import { ref as refImg, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 
@@ -523,7 +523,9 @@ export function ProviderContext({ children }) {
                 EditarHero2Description,
                 DeleteHero2Description,
                 UploadFileHero2,
-                deleteImgHero2
+                deleteImgHero2,
+                SavePartners,
+                GetAllPartners,
             }}
         >
             {children}
