@@ -24,9 +24,14 @@ export function ProviderContext({ children }) {
         description: '',
         image: null
     })
+    const [ContactInfo, setContactInfo] = useState({
+        Address: '',
+        Phone: '',
+        Email: ''
+    })
     const [imgUrl, setImgUrl] = useState(null)
     const [features, setFeatures] = useState([]);
-
+    //HERO 1 FUNCTIONS
     //Funcion para guardar los datos, No actualizar
     const SaveHero1 = async (title, descripcion) => {
         console.log("Backend")
@@ -625,6 +630,66 @@ export function ProviderContext({ children }) {
         }
     }
 
+    // Funciones de contacto
+
+    const SaveCotact = async (address, phone, email) => {
+        try {
+
+            set(ref(db, 'Contact/'), {
+                Address: address,
+                Phone: phone,
+                Email: email
+            })
+
+            console.log("Save Data")
+
+        } catch (error) {
+
+            console.log("Error save data")
+            console.log(error)
+        }
+    }
+
+    const EditContactAddress = async (newAddress) => {
+        try {
+            const heroRef = ref(db, 'Contact/');
+            update(heroRef, {
+                Address: newAddress
+            });
+
+            console.log('Address actualizados correctamente');
+        } catch (error) {
+            console.error('Error al actualizar Address:', error);
+        }
+    }
+
+    const EditContactPhone = async (newPhone) => {
+        try {
+            const heroRef = ref(db, 'Contact/');
+            update(heroRef, {
+                Phone: newPhone
+            });
+
+            console.log('Phone actualizados correctamente');
+        } catch (error) {
+            console.error('Error al actualizar Phone:', error);
+        }
+    }
+
+    const EditContactEmail = async (newEmail) => {
+        try {
+            const heroRef = ref(db, 'Contact/');
+            update(heroRef, {
+                Email: newEmail
+            });
+
+            console.log('Email actualizados correctamente');
+        } catch (error) {
+            console.error('Error al actualizar Email:', error);
+        }
+    }
+
+
 
 
 
@@ -653,12 +718,25 @@ export function ProviderContext({ children }) {
 
         }
     }
+    const ShowInfoContact = async () => {
+        try {
+            const fetchData = ref(db, 'Contact/')
+
+            onValue(fetchData, (snapshot) => {
+                const data = snapshot.val()
+                setContactInfo(prevText => ({ ...prevText, Address: data.Address, Phone: data.Phone, Email: data.Email }))
+            })
+        } catch (error) {
+
+        }
+    }
 
     useEffect(() => {
         console.log("Context")
         ShowInfoHero1()
         ShowInfoHero2()
         ShowFeatures()
+        ShowInfoContact()
     }, [])
 
 
@@ -706,8 +784,11 @@ export function ProviderContext({ children }) {
                 GetAllTestimonials,
                 SavePricing,
                 GetAllPricing,
-
-
+                ContactInfo,
+                SaveCotact,
+                EditContactAddress,
+                EditContactPhone,
+                EditContactEmail
             }}
         >
             {children}

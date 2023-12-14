@@ -8,9 +8,16 @@ import Logo3 from "./Logo3.png"
 import { IoLocationOutline } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import { useState } from "react"
+import { useContextRDT } from "../../Context"
 
 function Contact() {
-
+    const {
+        ContactInfo,
+        SaveCotact,
+        EditContactAddress,
+        EditContactPhone,
+        EditContactEmail
+    } = useContextRDT()
     const [text, setText] = useState({
         phone: '(843) 555-0130',
         email: 'willie.jennings@example.com',
@@ -20,23 +27,24 @@ function Contact() {
     const authAdmin = localStorage.getItem('D')
 
     const handleEditPhone = () => {
-        const newPhone = prompt('Edit phone:', text.phone);
+        const newPhone = prompt('Edit phone:', ContactInfo.Phone);
         if (newPhone !== null) {
-            setText(prevText => ({ ...prevText, phone: newPhone }));
+            EditContactPhone(newPhone)
         }
     }
 
     const handleEditEmail = () => {
-        const newEmail = prompt('Edit email:', text.email);
+        const newEmail = prompt('Edit email:', ContactInfo.Email);
         if (newEmail !== null) {
-            setText(prevText => ({ ...prevText, email: newEmail }));
+            EditContactEmail(newEmail)
         }
     }
 
     const handleEditAddress = () => {
-        const newAddres = prompt('Edit addres: ', text.address)
+        const newAddres = prompt('Edit addres: ', ContactInfo.Address)
         if (newAddres !== null) {
             setText(prevText => ({ ...prevText, address: newAddres }))
+            EditContactAddress(newAddres)
         }
     }
 
@@ -99,7 +107,7 @@ function Contact() {
                                 />
                                 <div className="flex flex-row items-center justify-between">
                                     <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                        {text.address.split(/(?<=\,)\s*/).map((sentence, index) => (
+                                        {ContactInfo.Address.split(/(?<=\,)\s*/).map((sentence, index) => (
                                             <span key={index}>
                                                 {sentence}
                                                 <br />
@@ -128,7 +136,7 @@ function Contact() {
                                 />
                                 <div className="flex flex-row items-center justify-between">
                                     <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                        {text.phone}
+                                        {ContactInfo.Phone}
 
                                     </p>
                                     {authAdmin === null ? "" :
@@ -152,7 +160,7 @@ function Contact() {
                                 />
                                 <div className="flex flex-row items-center justify-between">
                                     <p className="text-base md:text-lg ml-2 font-roboto font-bold">
-                                        {text.email}
+                                        {ContactInfo.Email}
                                     </p>
                                     {authAdmin === null ? "" :
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
