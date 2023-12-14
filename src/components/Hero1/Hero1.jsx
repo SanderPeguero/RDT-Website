@@ -5,7 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useContextRDT } from "../../Context";
 function Hero1() {
-    const {SaveHero1, InforHero1, EditarHero1Title, EditarHero1Description} = useContextRDT()
+    const { SaveHero1, InforHero1, EditarHero1Title, EditarHero1Description, UploadFile, deleteImg, DeleteHero1Title, DeleteHero1Description } = useContextRDT()
     const [image, setImage] = useState(TicketSystem);
     const [text, setText] = useState({
         title: 'We focus on ergonomics',
@@ -16,11 +16,12 @@ function Hero1() {
 
     const handleEditImg = (e) => {
         const selectedImage = e.target.files[0];
-        console.log(selectedImage)
+
+        UploadFile(selectedImage)
     }
 
     const handleDeleteImg = () => {
-        setImage(null)
+        deleteImg()
     };
 
     const handleEditTitle = () => {
@@ -33,7 +34,7 @@ function Hero1() {
     }
 
     const handleDeletedTitle = () => {
-        setText(prevText => ({ ...prevText, title: '' }));
+        DeleteHero1Title()
     }
 
     const handleEditDescription = () => {
@@ -45,14 +46,14 @@ function Hero1() {
     }
 
     const handleDeletedDescription = () => {
-        setText(prevText => ({ ...prevText, description: '' }));
+        DeleteHero1Description()
     }
 
     useEffect(() => {
-      console.log("Datos hero 1")
-      console.log(InforHero1)
+        console.log("Datos hero 1")
+        console.log(InforHero1)
     }, [])
-    
+
 
     return (
         <div className="relative">
@@ -82,8 +83,8 @@ function Hero1() {
                             </div>
                         </div>
                         }
-                        {image === null ? "" : <img
-                            src={image}
+                        {InforHero1.image === null ? "" : <img
+                            src={InforHero1.image}
                             className="w-full"
                             alt="Ticket System" />}
                     </div>

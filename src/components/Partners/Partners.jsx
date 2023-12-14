@@ -51,7 +51,7 @@ const partners = [
 ]
 //RW-5
 function Partners() {
-    
+
     const [storedData, setstoredData] = useState("")
     const [PrimerTitulo, setPrimerTitulo] = useState("Client Name");
     const [SegundoTitulo, setSegundoTitulo] = useState("Client Name");
@@ -78,7 +78,7 @@ function Partners() {
         e.stopPropagation();
     }
 
-    const Editar = (dato,e) => {
+    const Editar = (dato, e) => {
         let d
         switch (dato) {
             case 1:
@@ -122,7 +122,7 @@ function Partners() {
             case 7:
                 d = prompt('Edit title:', PrimerImagen)
                 setPrimerImagen(d !== null ? d : PrimerImagen);
-            
+
                 break;
             case 8:
                 d = prompt('Edit title:', SegundaImagen)
@@ -318,7 +318,7 @@ function Partners() {
                                     <div className="flex flex-row">
                                         <div className="px-3 py-2 text-right text-xs leading-4">
                                             <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                                <FaEdit size={14} onClick={(e) => Editar(7,e)} className="text-yellow-400" />
+                                                <FaEdit size={14} onClick={(e) => Editar(7, e)} className="text-yellow-400" />
                                             </button>
                                         </div>
                                         <div className="px-3 py-2 text-right text-xs leading-4">
