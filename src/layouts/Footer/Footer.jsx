@@ -7,6 +7,7 @@ import Logo3 from "./Logo3.png"
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { FaEdit } from "react-icons/fa";
 import { useState, useEffect } from "react"
+import { useContextRDT } from "../../Context"
 const mapStyles = {
     height: '250px',
     width: '100%',
@@ -19,7 +20,12 @@ const defaultCenter = {
     lng: -122.4194,
 };
 function Footer() {
-
+    const {
+        ContactInfo,
+        EditContactAddress,
+        EditContactPhone,
+        EditContactEmail
+    } = useContextRDT()
     const [text, setText] = useState({
         phone: '(843) 555-0130',
         email: 'willie.jennings@example.com',
@@ -52,23 +58,23 @@ function Footer() {
     const authAdmin = localStorage.getItem('D')
 
     const handleEditPhone = () => {
-        const newPhone = prompt('Edit phone:', text.phone);
+        const newPhone = prompt('Edit phone:', ContactInfo.Phone);
         if (newPhone !== null) {
-            setText(prevText => ({ ...prevText, phone: newPhone }));
+            EditContactPhone(newPhone)
         }
     }
 
     const handleEditEmail = () => {
-        const newEmail = prompt('Edit email:', text.email);
+        const newEmail = prompt('Edit email:', ContactInfo.Email);
         if (newEmail !== null) {
-            setText(prevText => ({ ...prevText, email: newEmail }));
+            EditContactEmail(newEmail)
         }
     }
 
     const handleEditAddress = () => {
-        const newAddres = prompt('Edit addres: ', text.address)
+        const newAddres = prompt('Edit addres: ', ContactInfo.Address)
         if (newAddres !== null) {
-            setText(prevText => ({ ...prevText, address: newAddres }))
+            EditContactAddress(newAddres)
         }
     }
 
@@ -131,22 +137,11 @@ function Footer() {
                     <h1 className="text-2xl font-bold mb-4 text-black">Pages</h1>
 
                     {/* Textos secundarios */}
-                    {Page.map((page) => (
-                        <div key={page.id} className="flex flex-row items-center  justify-between">
-                            <p className="mb-4 text-black">{page.page}</p>
-                            <div className="px-3 py-2 text-right  text-xs leading-4">
-                                {authAdmin === null ? "" :
-                                    <button onClick={() => handleEditPage(page.id)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>}
-                            </div>
-                        </div>
-                    ))}
-                    {/* <p className="mb-4 text-black">Eleanor Edwards</p>
+                    <p className="mb-4 text-black">Eleanor Edwards</p>
                     <p className="mb-4 text-black">Ted Robertson</p>
                     <p className="mb-4 text-black">Annette Russell</p>
                     <p className="mb-4 text-black">Jennie Mckinney</p>
-                    <p className="mb-4 text-black">Gloria Richards</p> */}
+                    <p className="mb-4 text-black">Gloria Richards</p>
                 </div>
 
                 <div className="mt-10 p-6 md:p-12">
@@ -200,7 +195,7 @@ function Footer() {
                                         className="h-6 mb-3 md:mb-0"
                                     />
                                     <p className="text-base md:text-lg ml-2 font-roboto font-bold text-black">
-                                        {text.address.split(/,\s*/).map((part, index) => (
+                                        {ContactInfo.Address.split(/,\s*/).map((part, index) => (
                                             <span key={index} style={{ display: 'block' }}>
                                                 {part}
                                             </span>
@@ -233,7 +228,7 @@ function Footer() {
                                         className="h-6 mb-3 md:mb-0"
                                     />
                                     <p className="text-base md:text-lg text-black ml-2 font-roboto font-bold">
-                                        {text.phone}
+                                        {ContactInfo.Phone}
 
                                     </p>
                                     {authAdmin === null ? "" :
@@ -260,7 +255,7 @@ function Footer() {
                                         className="h-6 mb-3 md:mb-0"
                                     />
                                     <p className="text-base md:text-lg ml-2 text-black font-roboto font-bold">
-                                        {text.email}
+                                        {ContactInfo.Email}
                                     </p>
                                     {authAdmin === null ? "" :
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
