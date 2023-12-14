@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useContextRDT } from "../../Context";
-function Testimonials() {  
-    const {SaveTestimonials,GetAllTestimonials } = useContextRDT()
+function Testimonials() {
+    const { SaveTestimonials, GetAllTestimonials } = useContextRDT()
     const [storedData, setstoredData] = useState("")
     // const [PrimerTitulo, setPrimerTitulo] = useState("Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.")
     // const [SegundoTitulo, setSegundoTitulo] = useState("Organize across")
@@ -28,7 +28,7 @@ function Testimonials() {
                     setSegundoTitulo(partnersData[2]?.Title || "");
                     setTerceroTitulo(partnersData[3]?.Title || "");
                     setPrimerImagen(partnersData[4]?.Image || "");
-                    
+
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
