@@ -142,6 +142,63 @@ export function ProviderContext({ children }) {
         }
     }
 
+    const SavePricing = async (id, title) => {
+        try {
+
+
+            const partnerRef = ref(db, `Pricing/${id}`);
+
+            try {
+                const partnerSnapshot = await get(partnerRef);
+
+                if (partnerSnapshot.exists()) {
+                    // El elemento existe, actualiza sus datos
+                    await update(partnerRef, {
+                        Title: title,
+                    });
+
+                    console.log("Update Data");
+                } else {
+                    // El elemento no existe, créalo
+                    await set(partnerRef, {
+                        id,
+                        Title: title,
+                    });
+
+                    console.log("Save Data");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+
+
+        } catch (error) {
+
+            console.log("Error save data")
+            console.log(error)
+        }
+    }
+
+    const GetAllPricing = async () => {
+        const partnersRef = ref(getDatabase(), 'Pricing');
+
+        try {
+            const partnersSnapshot = await get(partnersRef);
+
+            if (partnersSnapshot.exists()) {
+                // Obtén todos los datos de Partners
+                const partnersData = partnersSnapshot.val();
+                return partnersData;
+            } else {
+                console.log("No data available");
+                return null;
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            return null;
+        }
+    };
+
     const SaveTestimonials = async (id, title, image) => {
         try {
 
@@ -180,6 +237,7 @@ export function ProviderContext({ children }) {
             console.log(error)
         }
     }
+
     const GetAllTestimonials = async () => {
         const partnersRef = ref(getDatabase(), 'Testimonials');
 
@@ -645,7 +703,10 @@ export function ProviderContext({ children }) {
                 SaveCTA,
                 GetAllCTA,
                 SaveTestimonials,
-                GetAllTestimonials
+                GetAllTestimonials,
+                SavePricing,
+                GetAllPricing,
+
 
             }}
         >
