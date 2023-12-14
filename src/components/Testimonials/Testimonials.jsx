@@ -3,65 +3,116 @@ import avatar from "./avatar.png"
 import React, { useState, useEffect } from 'react';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-function Testimonials() {
+import { useContextRDT } from "../../Context";
+function Testimonials() {  
+    const {SaveTestimonials,GetAllTestimonials } = useContextRDT()
     const [storedData, setstoredData] = useState("")
-    const [PrimerTitulo, setPrimerTitulo] = useState("Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.")
-    const [SegundoTitulo, setSegundoTitulo] = useState("Organize across")
-    const [TerceroTitulo, setTerceroTitulo] = useState(" Ui designer")
-    const [PrimerImagen, setPrimerImagen] = useState(avatar)
+    // const [PrimerTitulo, setPrimerTitulo] = useState("Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.")
+    // const [SegundoTitulo, setSegundoTitulo] = useState("Organize across")
+    // const [TerceroTitulo, setTerceroTitulo] = useState(" Ui designer")
+    // const [PrimerImagen, setPrimerImagen] = useState(avatar)
+
+    const [PrimerTitulo, setPrimerTitulo] = useState("")
+    const [SegundoTitulo, setSegundoTitulo] = useState("")
+    const [TerceroTitulo, setTerceroTitulo] = useState("")
+    const [PrimerImagen, setPrimerImagen] = useState("")
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const partnersData = await GetAllTestimonials();
+                if (partnersData) {
+                    // Asigna los valores correspondientes a cada estado
+                    setPrimerTitulo(partnersData[1]?.Title || "");
+                    setSegundoTitulo(partnersData[2]?.Title || "");
+                    setTerceroTitulo(partnersData[3]?.Title || "");
+                    setPrimerImagen(partnersData[4]?.Image || "");
+                    
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    // useEffect(() => {
+    //     SaveTestimonials(1, "Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.", "")
+    //     SaveTestimonials(2,"Organize across", "")
+    //     SaveTestimonials(3, "Ui designer", "")
+    //     SaveTestimonials(4, "", avatar)
+    // }, [])
 
     const Editar = (dato) => {
         let d
+
         switch (dato) {
             case 1:
+
                 d = prompt('Edit title:', PrimerTitulo)
                 setPrimerTitulo(d !== null ? d : PrimerTitulo);
+                if (d !== null) {
+                    SaveTestimonials(dato, d, PrimerImagen)
+                }
 
                 break;
 
             case 2:
+
                 d = prompt('Edit title:', SegundoTitulo)
                 setSegundoTitulo(d !== null ? d : SegundoTitulo);
+                if (d !== null) {
+                    SaveTestimonials(dato, d, PrimerImagen)
+                }
+
 
                 break;
 
             case 3:
+
                 d = prompt('Edit title:', TerceroTitulo)
                 setTerceroTitulo(d !== null ? d : TerceroTitulo);
-
+                if (d !== null) {
+                    SaveTestimonials(dato, d, PrimerImagen)
+                }
                 break;
             case 4:
                 d = prompt('Edit Image:', PrimerImagen)
                 setPrimerImagen(d !== null ? d : PrimerImagen);
+                if (d !== null) {
+                    SaveTestimonials(dato, "", PrimerImagen)
+                }
 
                 break;
 
             default:
+
+
 
         }
     }
     const Eliminar = (dato) => {
         switch (dato) {
             case 1:
-
                 setPrimerTitulo("");
-
+                SaveTestimonials(dato, "", "");
                 break;
 
             case 2:
-
-                setSegundoTitulo("")
-
+                setSegundoTitulo("");
+                SaveTestimonials(dato, "", "");
                 break;
 
             case 3:
-
-                setTerceroTitulo("")
-
+                setTerceroTitulo("");
+                SaveTestimonials(dato, "", "");
                 break;
             case 4:
 
                 setPrimerImagen("")
+                SaveTestimonials(dato, "", "");
 
                 break;
 

@@ -141,6 +141,64 @@ export function ProviderContext({ children }) {
             console.log(error)
         }
     }
+
+    const SaveTestimonials = async (id, title, image) => {
+        try {
+
+
+            const partnerRef = ref(db, `Testimonials/${id}`);
+
+            try {
+                const partnerSnapshot = await get(partnerRef);
+
+                if (partnerSnapshot.exists()) {
+                    // El elemento existe, actualiza sus datos
+                    await update(partnerRef, {
+                        Title: title,
+                        Image: image
+                    });
+
+                    console.log("Update Data");
+                } else {
+                    // El elemento no existe, créalo
+                    await set(partnerRef, {
+                        id,
+                        Title: title,
+                        Image: image
+                    });
+
+                    console.log("Save Data");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+
+
+        } catch (error) {
+
+            console.log("Error save data")
+            console.log(error)
+        }
+    }
+    const GetAllTestimonials = async () => {
+        const partnersRef = ref(getDatabase(), 'Testimonials');
+
+        try {
+            const partnersSnapshot = await get(partnersRef);
+
+            if (partnersSnapshot.exists()) {
+                // Obtén todos los datos de Partners
+                const partnersData = partnersSnapshot.val();
+                return partnersData;
+            } else {
+                console.log("No data available");
+                return null;
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            return null;
+        }
+    };
     const GetAllPartners = async () => {
         const partnersRef = ref(getDatabase(), 'Partners');
 
@@ -584,6 +642,10 @@ export function ProviderContext({ children }) {
                 GetAllCTA,
                 SavePartners,
                 GetAllPartners,
+                SaveCTA,
+                GetAllCTA,
+                SaveTestimonials,
+                GetAllTestimonials
 
             }}
         >
